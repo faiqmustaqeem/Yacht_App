@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "737424288000",
+    "firebase_url": "https://yacht-app-ace60.firebaseio.com",
+    "project_id": "yacht-app-ace60",
+    "storage_bucket": "yacht-app-ace60.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:737424288000:android:899511e3b57faf7b",
+        "android_client_info": {
+          "package_name": "com.digitalexperts.bookyachts"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "737424288000-41omfti34jn3elb858jn1bs67bdnce65.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwXSIAur68tSzXQ4d4taapB0QNWQYURHI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,8 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="sliderHeight">200dp</dimen>
+    <dimen name="resideMenuIconSize">40dp</dimen>
+    <dimen name="resideMenuTextSize">17sp</dimen>
+
+    <dimen name="whiteBackgroundSize">420dp</dimen>
+</resources>

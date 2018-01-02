@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_booking_history"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.digitalexperts.bookyachts.activity.BookingHistoryActivity">
+
+    <View
+        android:id="@+id/view"
+        android:layout_below="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="#000"
+        />
+
+    <com.cooltechworks.views.shimmer.ShimmerRecyclerView
+        android:layout_below="@+id/view"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/rvAllBookings"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:demo_child_count="5"
+        android:layout_marginBottom="40dp"
+        app:demo_layout="@layout/layout_demo"
+        app:demo_layout_manager_type="linear_vertical"
+        />
+
+    <com.github.ybq.android.spinkit.SpinKitView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/spin_kit"
+        android:visibility="invisible"
+        style="@style/SpinKitView.Large.DoubleBounce"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        app:SpinKit_Color="@color/colorPrimary"
+
+        />
+</RelativeLayout>

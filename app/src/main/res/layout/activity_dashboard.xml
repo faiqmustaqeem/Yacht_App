@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/ll_dashboard"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="0dp"
+        android:background="@drawable/splash_bg"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary">
+            <!--
+                        <ImageView
+                            android:id="@+id/ivNavigationIcon"
+                            android:layout_width="25dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="10dp"
+                            android:src="@drawable/ic_white_menu" />-->
+
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="12dp"
+                android:text="BOOK  YACHTS"
+                android:textColor="#fff"
+                android:textStyle="bold"
+                android:visibility="gone"/>
+
+            <ImageView
+                android:id="@+id/ivSearchYacht"
+                android:layout_width="25dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/search"
+                android:visibility="gone"/>
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:src="@drawable/logo"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="8dp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_marginLeft="8dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginBottom="8dp" />
+            </android.support.constraint.ConstraintLayout>
+        </LinearLayout>
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_below="@+id/text"
+            android:background="#000" />
+
+        <LinearLayout
+            android:id="@+id/liSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_background"
+            android:orientation="horizontal"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_gravity="center"
+                android:src="@drawable/search" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:text="Search "
+                android:textColor="#fff"
+
+                />
+
+            <EditText
+                android:id="@+id/txtSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/edittext_white_background"
+                android:gravity="center"
+                android:hint="Search Yacht By Title"
+                android:inputType="textPersonName"
+                android:padding="5dp"
+                android:textColor="#000"
+                android:textColorHint="#000"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <com.cooltechworks.views.shimmer.ShimmerRecyclerView
+            android:id="@+id/rvAllYachts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="0dp"
+            app:demo_child_count="5"
+            app:demo_layout="@layout/layout_demo"
+            app:demo_layout_manager_type="linear_vertical" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal"
+        android:weightSum="25"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <ImageView
+            android:id="@+id/ivNavigationIcon"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:padding="18dp"
+            android:src="@drawable/ic_white_menu" />
+
+        <ImageView
+            android:id="@+id/ivHome"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:gravity="bottom"
+            android:orientation="vertical"
+            android:padding="9dp"
+            android:src="@drawable/ic_home"/>
+        <ImageView
+            android:id="@+id/ivCallBack"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:gravity="bottom"
+            android:orientation="vertical"
+            android:padding="9dp"
+            android:src="@drawable/ic_phone"/>
+        <ImageView
+            android:id="@+id/ivHotDeals"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:gravity="bottom"
+            android:orientation="vertical"
+            android:padding="9dp"
+            android:src="@drawable/ic_hot_deals_orange"/>
+        <ImageView
+            android:id="@+id/ivContactUs"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:gravity="bottom"
+            android:orientation="vertical"
+            android:padding="9dp"
+            android:src="@drawable/ic_contact"/>
+
+    </LinearLayout>
+
+    <com.github.ybq.android.spinkit.SpinKitView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/spin_kit"
+        style="@style/SpinKitView.Large.DoubleBounce"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:visibility="invisible"
+        app:SpinKit_Color="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

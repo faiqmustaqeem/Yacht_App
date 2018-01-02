@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_show_ship"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.digitalexperts.bookyachts.activity.ShowShipVideoActivity">
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:text="YACHT VIDEO"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:background="#e19227"
+        android:gravity="center"
+        />
+
+    <View
+        android:id="@+id/view"
+        android:layout_below="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="#000"
+        />
+    <com.github.rtoshiro.view.video.FullscreenVideoLayout
+        android:id="@+id/videoview"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <com.github.ybq.android.spinkit.SpinKitView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/spin_kit"
+        android:visibility="invisible"
+        style="@style/SpinKitView.Large.DoubleBounce"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        app:SpinKit_Color="@color/colorPrimary"
+
+        />
+</RelativeLayout>

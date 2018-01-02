@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.digitalexperts.bookyachts.activity.BookingTimeActivity">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/constraintLayout"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/colorPrimary"
+                android:padding="15dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageButton
+                    android:id="@+id/ivBackMonth"
+                    android:layout_width="15dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="2dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/ic_previous"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/ivForwardMonth"
+                    android:layout_width="15dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="2dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/ic_next"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvDay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="9 June"
+                    android:textAllCaps="true"
+                    android:textColor="@android:color/white"
+                    android:textSize="18dip"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/ivBackMonth"
+                    app:layout_constraintRight_toLeftOf="@+id/ivForwardMonth"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/constraintLayout2"
+                android:layout_width="0dp"
+                android:layout_height="250dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <GridView
+                        android:id="@+id/gvAllHours"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:columnWidth="120dp"
+                        android:gravity="center"
+                        android:horizontalSpacing="10dp"
+                        android:numColumns="4"
+                        android:verticalSpacing="10dp"
+                        android:stretchMode="columnWidth"
+                        android:textAlignment="gravity"/>
+                </LinearLayout>
+
+                <!--                <GridView
+                                    android:id="@+id/gvAllHours"
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:layout_marginRight="8dp"
+                                    app:layout_constraintRight_toRightOf="parent"
+                                    android:layout_marginLeft="8dp"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    android:layout_marginBottom="8dp"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    android:layout_marginTop="8dp"
+                                    android:numColumns="4"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:visibility="gone"></GridView>-->
+
+                <!--
+
+                                <android.support.v7.widget.RecyclerView
+                                    android:id="@+id/rvTimings1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="30dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:layout_marginLeft="8dp"
+                                    android:layout_marginRight="8dp"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginTop="8dp"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintRight_toRightOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"></android.support.v7.widget.RecyclerView>
+
+                                <android.support.v7.widget.RecyclerView
+                                    android:id="@+id/rvTimings2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="30dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:layout_marginLeft="8dp"
+                                    android:layout_marginRight="8dp"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginTop="5dp"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintRight_toRightOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/rvTimings1"></android.support.v7.widget.RecyclerView>
+
+                                <android.support.v7.widget.RecyclerView
+                                    android:id="@+id/rvTimings3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="30dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:layout_marginLeft="8dp"
+                                    android:layout_marginRight="8dp"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginTop="5dp"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintRight_toRightOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/rvTimings2"></android.support.v7.widget.RecyclerView>
+
+                                <android.support.v7.widget.RecyclerView
+                                    android:id="@+id/rvTimings4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="30dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:layout_marginLeft="8dp"
+                                    android:layout_marginRight="8dp"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginTop="5dp"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintRight_toRightOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/rvTimings3"></android.support.v7.widget.RecyclerView>
+
+                                <android.support.v7.widget.RecyclerView
+                                    android:id="@+id/rvTimings5"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="30dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:layout_marginLeft="8dp"
+                                    android:layout_marginRight="8dp"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginTop="5dp"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintRight_toRightOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/rvTimings4"></android.support.v7.widget.RecyclerView>
+
+                                <android.support.v7.widget.RecyclerView
+                                    android:id="@+id/rvTimings6"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="30dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:layout_marginLeft="8dp"
+                                    android:layout_marginRight="8dp"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginTop="8dp"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintRight_toRightOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/rvTimings5"></android.support.v7.widget.RecyclerView>
+                -->
+
+            </android.support.constraint.ConstraintLayout>
+
+            <ImageView
+                android:id="@+id/ivHotOfferIcon2"
+                android:layout_width="30dp"
+                android:layout_height="0dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginStart="20dp"
+                android:padding="3dp"
+                android:src="@drawable/ic_hot_offer"
+                android:tint="#ff0000"
+                app:layout_constraintBottom_toBottomOf="@+id/textView"
+                app:layout_constraintRight_toLeftOf="@+id/textView"
+                app:layout_constraintTop_toTopOf="@+id/textView"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="20dp"
+                android:text="Hot Offer available for these time slots"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout1"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:weightSum="9"
+                android:layout_marginLeft="8dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView"
+                android:layout_marginRight="8dp"
+                app:layout_constraintRight_toRightOf="parent">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:background="#fff5c3"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txtSelectYacht"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="30ft"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtGuest"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:gravity="center"
+                        android:text="Max Pax 08"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="12sp"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:background="@color/light_gray"
+                    android:orientation="vertical">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/textView1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginTop="6dp"
+                            android:text="actual price"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tvOldPrice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginTop="0dp"
+                            android:text="1000"
+                            android:textColor="@color/colorPrimary"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            android:textSize="24sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView1"
+                            android:layout_marginLeft="16dp"
+                            app:layout_constraintVertical_bias="0.0" />
+
+                        <View
+                            android:id="@+id/view3"
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:background="@android:color/black"
+                            app:layout_constraintBottom_toBottomOf="@+id/tvOldPrice"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintLeft_toLeftOf="@+id/tvOldPrice"
+                            app:layout_constraintRight_toRightOf="@+id/tvOldPrice"
+                            app:layout_constraintTop_toTopOf="@+id/tvOldPrice" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_gravity="top"
+                            android:layout_marginBottom="0dp"
+                            android:layout_marginLeft="0dp"
+                            android:layout_marginTop="8dp"
+                            android:gravity="bottom"
+                            android:paddingRight="10dp"
+                            android:text="AED \n/HOUR"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="10sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/tvOldPrice"
+                            app:layout_constraintLeft_toRightOf="@+id/tvOldPrice"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:layout_marginRight="8dp"
+                            app:layout_constraintRight_toRightOf="parent"
+                            android:id="@+id/textView9"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintVertical_bias="1.0" />
+                    </android.support.constraint.ConstraintLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:background="#fff5c3"
+                    android:orientation="vertical">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/ivHotOfferIcon"
+                            android:layout_width="25dp"
+                            android:layout_height="0dp"
+                            android:layout_marginLeft="0dp"
+                            android:layout_marginStart="20dp"
+                            android:background="#fff5c3"
+                            android:padding="3dp"
+                            android:src="@drawable/ic_hot_offer"
+                            android:tint="#ff0000"
+                            app:layout_constraintBottom_toBottomOf="@+id/tvNewPrice"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/tvNewPrice"
+                            app:layout_constraintVertical_bias="1.0" />
+
+                        <TextView
+                            android:id="@+id/textView2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginTop="6dp"
+                            android:text="hot offer"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tvNewPrice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginLeft="0dp"
+                            android:layout_marginTop="0dp"
+                            android:text="750"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="24sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintHorizontal_bias="0.061"
+                            app:layout_constraintLeft_toRightOf="@+id/ivHotOfferIcon"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:layout_gravity="top"
+                            android:layout_marginBottom="0dp"
+                            android:layout_marginLeft="0dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginTop="8dp"
+                            android:gravity="bottom"
+                            android:paddingRight="10dp"
+                            android:text="AED \n/HOUR"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="10sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/tvNewPrice"
+                            app:layout_constraintLeft_toRightOf="@+id/tvNewPrice"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </android.support.constraint.ConstraintLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="START TIME"
+                android:textSize="12sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout1" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="18dp"
+                android:paddingBottom="0dp"
+                android:paddingLeft="0dp"
+                android:paddingTop="0dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView3">
+
+                <EditText
+                    android:id="@+id/etStartTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:focusable="false"
+                    android:hint=""
+                    android:inputType="number"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="@android:color/black"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:text="DURATION"
+                android:textSize="12sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="18dp"
+                android:paddingBottom="0dp"
+                android:paddingLeft="0dp"
+                android:paddingTop="0dp"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4">
+
+
+                <EditText
+                    android:id="@+id/tvDuration"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:focusable="false"
+                    android:hint=""
+                    android:inputType="number"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="@android:color/black"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:text="DATE"
+                android:textSize="12sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="18dp"
+                android:paddingBottom="0dp"
+                android:paddingLeft="0dp"
+                android:paddingTop="0dp"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView5">
+
+                <EditText
+                    android:id="@+id/etDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:focusable="false"
+                    android:hint="10/12/2017"
+                    android:inputType="number"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="@android:color/black"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="18dp"
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
+
+                <TextView
+                    android:id="@+id/tvConfirm"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="0dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:padding="15dp"
+                    android:text="PROCEED"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout6" />
+            </LinearLayout>
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>

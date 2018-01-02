@@ -1,0 +1,762 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.digitalexperts.bookyachts.activity.ShipDetailsActivity">
+
+    <LinearLayout
+        android:id="@+id/activity_sip_details"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/linearLayout"
+        android:background="@drawable/splash_bg"
+        android:orientation="vertical">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@color/colorPrimary">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/logo"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ivPreviousYacht"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="0dp"
+                android:background="?attr/selectableItemBackground"
+                android:padding="8dp"
+                android:src="@drawable/ic_previous"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ivNextYacht"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginBottom="0dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginTop="0dp"
+                android:background="?attr/selectableItemBackground"
+                android:padding="8dp"
+                android:src="@drawable/ic_next"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:layout_below="@+id/text"
+                    android:background="#000" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/sliderHeight">
+<!--
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorPrimary">
+
+                        <ImageView
+                            android:id="@+id/ivPreviousPictureYacht"
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginLeft="0dp"
+                            android:layout_marginTop="0dp"
+                            android:background="?attr/selectableItemBackground"
+                            android:foregroundGravity="center"
+                            android:padding="8dp"
+                            android:src="@drawable/ic_previous"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/ivNextPictureYacht"
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:layout_marginBottom="0dp"
+                            android:layout_marginRight="0dp"
+                            android:layout_marginTop="0dp"
+                            android:background="?attr/selectableItemBackground"
+                            android:foregroundGravity="center"
+                            android:padding="8dp"
+                            android:src="@drawable/ic_next"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </android.support.constraint.ConstraintLayout>
+-->
+
+                    <ImageView
+                        android:id="@+id/ivNextPictureYacht"
+                        android:layout_width="24dp"
+                        android:layout_height="30dp"
+                        android:layout_marginRight="0dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:foregroundGravity="center"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_next"
+                        android:layout_alignParentEnd="true"
+                        android:layout_above="@+id/indicator"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentTop="true"/>
+
+                    <ImageView
+                        android:id="@+id/ivPreviousPictureYacht"
+                        android:layout_width="24dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="0dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:foregroundGravity="center"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_previous"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentTop="true" />
+
+
+                    <ImageView
+                        android:id="@+id/ivYachtImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/sliderHeight"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/icon_slider_ship"
+                        android:visibility="gone" />
+
+                    <android.support.v4.view.ViewPager
+                        android:id="@+id/slider"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/sliderHeight">
+
+                    </android.support.v4.view.ViewPager>
+
+                    <me.relex.circleindicator.CircleIndicator
+                        android:id="@+id/indicator"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_alignParentBottom="true"
+                        android:gravity="center_vertical" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_alignParentBottom="true"
+                        android:alpha="0.3"
+                        android:background="#000"
+                        android:orientation="horizontal"></LinearLayout>
+                </RelativeLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rvImageSlider"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_below="@+id/view2"
+                    android:layout_gravity="center_horizontal"
+                    android:visibility="gone"
+
+                    />
+
+
+                <LinearLayout
+                    android:id="@+id/liMain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:orientation="horizontal"
+                    android:padding="5dp"
+                    android:weightSum="25">
+
+                    <TextView
+                        android:id="@+id/tvYachtTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:text="30ft"
+                        android:textColor="@android:color/white"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="7"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvPrice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="369"
+                            android:textColor="@android:color/white"
+                            android:textSize="24sp"
+                            android:textStyle="bold"
+
+                            />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="8dp"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="left"
+                                android:text="AED"
+                                android:textColor="@android:color/white"
+                                android:textSize="8sp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="/ HOUR"
+                                android:textColor="@android:color/white"
+                                android:textSize="8sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="6"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvGuestNumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="08"
+                            android:textColor="@android:color/white"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="PAX"
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvBookNow1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="7"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+
+                        android:drawableLeft="@drawable/icon_yacht"
+                        android:gravity="center"
+                        android:text="BOOK  NOW"
+                        android:textColor="@android:color/holo_orange_dark"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rvYachtImages"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="@android:color/white"
+                    android:visibility="gone"
+                    ></android.support.v7.widget.RecyclerView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/ivYachtMainImage"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/demo_one" />
+
+                    <View
+                        android:layout_width="5dp"
+                        android:layout_height="match_parent"></View>
+
+                    <ImageView
+                        android:id="@+id/ivYachtVideo"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/demo_two" />
+
+                    <View
+                        android:layout_width="5dp"
+                        android:layout_height="match_parent"></View>
+
+                    <ImageView
+                        android:id="@+id/ivYachtLocation"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_weight="1"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/map" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:alpha="0.3"
+                        android:background="#000">
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:background="@android:color/white"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="4dp">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/icon_yacht"
+                                android:tint="@android:color/black" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="4dp"
+                                android:padding="4dp"
+                                android:text="Maximum Guests"
+                                android:textColor="@android:color/black"
+                                android:textSize="12sp" />
+
+                            <FrameLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"></FrameLayout>
+
+                            <TextView
+                                android:id="@+id/tvYachtGuest"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="15 Guests"
+                                android:textColor="@android:color/black"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:background="@android:color/darker_gray" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="4dp">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/icon_yacht"
+                                android:tint="@android:color/black" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="4dp"
+                                android:padding="4dp"
+                                android:text="Trip Duration"
+                                android:textColor="@android:color/black"
+                                android:textSize="12sp" />
+
+                            <FrameLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"></FrameLayout>
+
+                            <TextView
+                                android:id="@+id/tvYachtDuration"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Minimum 2 hours"
+                                android:textColor="@android:color/black"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:background="@android:color/darker_gray" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:visibility="gone"
+                            android:padding="4dp">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/icon_yacht"
+                                android:tint="@android:color/black" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="4dp"
+                                android:padding="4dp"
+                                android:text="Capacity"
+                                android:textColor="@android:color/black"
+                                android:textSize="12sp" />
+
+                            <FrameLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"></FrameLayout>
+
+                            <TextView
+                                android:id="@+id/tvCapacity"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="08 Guests + 01 Captain"
+                                android:textColor="@android:color/black"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:background="@android:color/darker_gray" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="4dp">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/icon_yacht"
+                                android:tint="@android:color/black" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="4dp"
+                                android:padding="4dp"
+                                android:text="Cabins"
+                                android:textColor="@android:color/black"
+                                android:textSize="12sp" />
+
+                            <FrameLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"></FrameLayout>
+
+                            <TextView
+                                android:id="@+id/tvCabins"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="01 Cabin, 01 Toilet"
+                                android:textColor="@android:color/black"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:background="@android:color/darker_gray" />
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:background="@android:color/darker_gray" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginBottom="10dp"
+                            android:padding="4dp">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/icon_yacht"
+                                android:tint="@android:color/black" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="4dp"
+                                android:padding="4dp"
+                                android:layout_gravity="center_vertical"
+                                android:text="Facilities"
+                                android:textColor="@android:color/black"
+                                android:textSize="12sp" />
+
+                            <FrameLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"></FrameLayout>
+
+                            <TextView
+                                android:id="@+id/tvfacilities"
+                                android:layout_width="180dp"
+                                android:layout_height="wrap_content"
+                                android:text="facilities"
+                                android:maxLines="5"
+                                android:layout_gravity="center_vertical"
+                                android:textColor="@android:color/black"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="0dp"
+                            android:orientation="horizontal">
+
+                            <!-- <LinearLayout
+                                 android:layout_width="0dp"
+                                 android:layout_height="wrap_content"
+                                 android:layout_weight="1"
+                                 android:gravity="center"
+                                 android:orientation="vertical">
+
+                                 <TextView
+                                     android:id="@+id/tvHotSlots"
+                                     android:layout_width="wrap_content"
+                                     android:layout_height="wrap_content"
+                                     android:background="#8243e0"
+                                     android:padding="4dp"
+                                     android:text=" Hot Slots "
+                                     android:textColor="@android:color/white"
+                                     android:textSize="18sp"
+                                     android:textStyle="bold" />
+
+                             </LinearLayout>-->
+                            <!--
+                                                        <LinearLayout
+                                                            android:layout_width="0dp"
+                                                            android:layout_height="wrap_content"
+
+                                                            android:layout_weight="1"
+                                                            android:orientation="vertical">
+
+                                                            <TextView
+                                                                android:id="@+id/tvBookNow"
+                                                                android:layout_width="wrap_content"
+                                                                android:layout_height="wrap_content"
+                                                                android:background="#4b9bff"
+                                                                android:padding="4dp"
+                                                                android:text=" Book Now "
+                                                                android:textColor="@android:color/white"
+                                                                android:textSize="18sp"
+                                                                android:textStyle="bold" />
+
+                                                            <TextView
+                                                                android:id="@+id/tvCallback"
+                                                                android:layout_width="wrap_content"
+
+                                                                android:layout_height="wrap_content"
+                                                                android:layout_marginTop="5dp"
+                                                                android:background="#e19227"
+                                                                android:padding="4dp"
+                                                                android:text="  Call Back  "
+                                                                android:textColor="#fff"
+                                                                android:textSize="18sp"
+                                                                android:textStyle="bold" />
+
+                                                        </LinearLayout>-->
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginTop="0dp"
+                    android:background="#fff">
+
+
+                    <!--<LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:text="Inclusive Facilities "
+                            android:textColor="#000"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+
+                            />
+
+                        <TextView
+                            android:id="@+id/tvInClusiveFacilities"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center"
+                            android:paddingBottom="10dp"
+                            android:textColor="#000"
+                            android:textSize="15sp"
+
+                            />
+
+
+                    </LinearLayout>-->
+
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="0dp"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal"
+        android:weightSum="25">
+
+        <ImageView
+            android:id="@+id/ivNavigationIcon"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:padding="18dp"
+            android:src="@drawable/ic_white_menu" />
+
+        <ImageView
+            android:id="@+id/ivHome"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:gravity="bottom"
+            android:orientation="vertical"
+            android:padding="9dp"
+            android:src="@drawable/ic_home" />
+
+        <ImageView
+            android:id="@+id/ivCallBack"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:gravity="bottom"
+            android:orientation="vertical"
+            android:padding="9dp"
+            android:src="@drawable/ic_phone" />
+
+        <ImageView
+            android:id="@+id/ivHotDeals"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:gravity="bottom"
+            android:orientation="vertical"
+            android:padding="9dp"
+            android:src="@drawable/ic_hot_deals_orange" />
+
+        <ImageView
+            android:id="@+id/ivContactUs"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:gravity="bottom"
+            android:orientation="vertical"
+            android:padding="9dp"
+            android:src="@drawable/ic_contact" />
+
+    </LinearLayout>
+
+
+    <com.github.ybq.android.spinkit.SpinKitView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/spin_kit"
+        style="@style/SpinKitView.Large.DoubleBounce"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="invisible"
+        app:SpinKit_Color="@color/colorPrimary" />
+
+</RelativeLayout>
