@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#18274A</color>
+    <color name="colorPrimaryDark">#0F1C3F</color>
+    <color name="colorAccent">#18274A</color>
+
+    <color name="calendarColor">#f8e8d7</color>
+    <color name="orange">#ed6136</color>
+
+    <color name="lightBlack">#383838</color>
+    <color name="green">#497047</color>
+    <color name="light_gray">#edeaea</color>
+    <color name="light_red">#facaca</color>
+    <color name="light_blue">#a7b5d4</color>
+</resources>

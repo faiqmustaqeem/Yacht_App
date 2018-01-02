@@ -1,0 +1,59 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#fff"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    >
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:text="Exclusive Facilities"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:background="#e19227"
+        android:gravity="center"
+        />
+    <View
+        android:id="@+id/view"
+        android:layout_below="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="#000"
+        />
+
+    <ExpandableListView
+        android:layout_marginTop="10dp"
+        android:id="@+id/expListView"
+        android:layout_weight="1"
+        android:scrollbars="vertical"
+        android:layout_height="0dp"
+        android:layout_width="match_parent"/>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:textColor="#000"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvTotal"
+        android:layout_gravity="center"
+        android:gravity="center"
+
+        />
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Go Back"
+        android:background="@drawable/button_background"
+        android:padding="10dp"
+        android:textColor="#fff"
+        android:gravity="center"
+        />
+</LinearLayout>
