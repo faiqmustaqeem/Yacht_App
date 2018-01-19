@@ -127,6 +127,7 @@ public class LoginActivity extends AppCompatActivity {
 
                                 //JSONObject dataObject = jsonObject.getJSONObject("data");
                                 JSONObject userDataObject = resultObject.getJSONObject("user_data");
+
                                 UserModel userModel;
                                 userModel = new UserModel();
                                 userModel.setUserId(userDataObject.getString("user_id"));
@@ -134,8 +135,15 @@ public class LoginActivity extends AppCompatActivity {
                                 userModel.setAuthKey(userDataObject.getString("api_secret"));
                                 userModel.setEmail(userDataObject.getString("email"));
                                 userModel.setCountry(userDataObject.getString("country_name"));
+
                                 userModel.setState(userDataObject.getString("state_name"));
-                                userModel.setCity(userDataObject.getString("city_name"));
+                                if(userDataObject.getString("country_name").equals("United Arab Emirates"))
+                                {
+                                    userModel.setCity(userDataObject.getString("state_name"));
+                                }
+                                else {
+                                    userModel.setCity(userDataObject.getString("city_name"));
+                                }
                                 userModel.setPostalCode(userDataObject.getString("postal_code"));
                                 userModel.setContactNo(userDataObject.getString("phone_number"));
                                 userModel.setAddress(userDataObject.getString("address_1"));

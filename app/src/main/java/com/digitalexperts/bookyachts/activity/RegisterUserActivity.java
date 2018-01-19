@@ -342,6 +342,7 @@ public class RegisterUserActivity extends AppCompatActivity {
                                     }
                                     else
                                     {
+                                        cityName=stateName;
                                         findViewById(R.id.spinnerLayout3).setVisibility(View.GONE);
                                     }
                                 }
