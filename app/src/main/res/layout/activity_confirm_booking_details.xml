@@ -332,7 +332,7 @@
             android:clickable="true"
             android:gravity="center"
             android:padding="15dp"
-            android:text="PROCEED TO PAYMENT"
+            android:text="PROCEED"
             android:textColor="@android:color/white"
             android:textSize="16sp"
             android:textStyle="bold"

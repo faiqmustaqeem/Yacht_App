@@ -544,8 +544,6 @@ public class BookingActivity extends AppCompatActivity implements ShowDataInterf
         body.put("yacht_id", AppConstants.yachtsModel.getId());
         body.put("booking_date", AppConstants.bookYachtModel.getStartDate());
 
-
-
         service.fetchBookedTimes(body).enqueue(new Callback<Object>() {
             @Override
             public void onResponse(Call<Object> call, Response<Object> response) {

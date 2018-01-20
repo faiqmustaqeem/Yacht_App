@@ -58,6 +58,7 @@ public class CalendarAdapter extends BaseAdapter {
     private ArrayList<String> items;
     public static List<String> day_string;
     private View previousView;
+    TextView prevTextView;
     public ArrayList<CalendarCollection> date_collection_arr = new ArrayList(1);
 
     public CalendarAdapter(Context context, GregorianCalendar monthCalendar, ArrayList<CalendarCollection> date_collection_arr) {
@@ -74,6 +75,7 @@ public class CalendarAdapter extends BaseAdapter {
         this.items = new ArrayList<String>();
         df = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
         curentDateString = df.format(selectedDate.getTime());
+        Log.e("current_date",curentDateString);
         refreshDays();
 
     }
@@ -138,13 +140,16 @@ public class CalendarAdapter extends BaseAdapter {
             dayView.setTextColor(context.getResources().getColor(android.R.color.darker_gray));
             dayView.setClickable(false);
             dayView.setFocusable(false);
+
         } else {
+
             Log.e("dayview"+position , "3");
             // setting curent month's days in blue color.
             dayView.setTextColor(context.getResources().getColor(android.R.color.darker_gray));
             dayView.setBackground(context.getResources().getDrawable(R.drawable.calendar_selecter));
             dayView.setText(gridvalue);
         }
+        Log.e("grid_value",gridvalue);
 
         for (int i = 0; i < AppConstants.yachtsHotSlotsArrayList.size(); i++) {
             HotSlotModel hotSlotModel = AppConstants.yachtsHotSlotsArrayList.get(i);
@@ -155,7 +160,19 @@ public class CalendarAdapter extends BaseAdapter {
             }
         }
 
+
+        Calendar c1 = Calendar.getInstance();
+        Calendar c2 = Calendar.getInstance();
+        SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+        try {
+            c1.setTime(sdf1.parse(day_string.get(position)));// all done
+            c2.setTime(sdf1.parse(curentDateString));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
         if (day_string.get(position).equals(curentDateString)) {
+            Log.e("day_string",day_string.get(position));
             dayView.setTextColor(context.getResources().getColor(android.R.color.darker_gray));
             dayView.setBackground(context.getResources().getDrawable(R.drawable.calendar_selecter));
             previousView = dayView;
@@ -173,6 +190,11 @@ public class CalendarAdapter extends BaseAdapter {
 
         } else {
 
+        }
+        if(c1.after(c2) || c1.equals(c2))
+        {
+            dayView.setTextColor(context.getResources().getColor(android.R.color.white));
+            dayView.setBackground(context.getResources().getDrawable(R.drawable.calendar_selecter_gray));
         }
 
         dayView.setOnClickListener(new View.OnClickListener() {
@@ -217,9 +239,16 @@ public class CalendarAdapter extends BaseAdapter {
 
 
                     if (previousView != null) {
-                        previousView.setBackground(context.getResources().getDrawable(R.drawable.calendar_selecter));
-                        dayView.setTextColor(context.getResources().getColor(android.R.color.darker_gray));
-                        dayView.setTextColor(context.getResources().getColor(android.R.color.darker_gray));
+//                        previousView.setBackground(context.getResources().getDrawable(R.drawable.calendar_selecter));
+//                        dayView.setTextColor(context.getResources().getColor(android.R.color.darker_gray));
+//                        dayView.setTextColor(context.getResources().getColor(android.R.color.darker_gray));
+
+
+                        previousView.setBackground(context.getResources().getDrawable(R.drawable.calendar_selecter_gray));
+                    }
+                    if(prevTextView!=null)
+                    {
+                        prevTextView.setTextColor(context.getResources().getColor(android.R.color.white));
                     }
                     //Constants.dateSelected = date;
 
@@ -235,6 +264,7 @@ public class CalendarAdapter extends BaseAdapter {
                     dayView.setTextColor(context.getResources().getColor(android.R.color.darker_gray));
 
                     previousView = v;
+                    prevTextView=dayView;
                 }
 
             }

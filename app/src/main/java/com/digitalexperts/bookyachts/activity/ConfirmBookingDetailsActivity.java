@@ -147,7 +147,7 @@ double getPercentAmount(double amount , double percent)
                 {
                     Intent i = new Intent(ConfirmBookingDetailsActivity.this, UserInfo.class);
                     startActivity(i);
-                    this.finish();
+//                    this.finish();
                 }
                 break;
         }
@@ -252,13 +252,14 @@ double getPercentAmount(double amount , double percent)
 
                                 orderId  = dataObject.getString("order_id").substring(0,dataObject.getString("order_id").length()-2); //get from reply of api
                                 AppConstants.order_id=orderId;
-                                accessCode = "AVBU02EL68AF26UBFA";
-                                merchantId = "43560";
-                                currency = "AED";
+
+                                accessCode = AppConstants.accessCode;
+                                merchantId = AppConstants.merchantId;
+                                currency = AppConstants.currency;
                                 amount = String.valueOf(payingNow); // from amount paying now
-                                rsaKeyUrl = "https://bookyachts.ae/appresponse/GetRSA.php";
-                                redirectUrl = "https://bookyachts.ae/appresponse/ccavResponseHandler.php";
-                                cancelUrl = "https://bookyachts.ae/appresponse/ccavResponseHandler.php";
+                                rsaKeyUrl = AppConstants.rsaKeyUrl;
+                                redirectUrl = AppConstants.redirectUrl;
+                                cancelUrl = AppConstants.redirectUrl;
 
                                 if(spinKit.isShown())
                                 spinKit.setVisibility(View.GONE);
@@ -268,7 +269,8 @@ double getPercentAmount(double amount , double percent)
 
 
 
-                            } else if (status.equals("error"))
+                            }
+                            else if (status.equals("error"))
                             {
                                 spinKit.setVisibility(View.GONE);
                                 Toast.makeText(activity, message, Toast.LENGTH_LONG).show();
@@ -300,7 +302,8 @@ double getPercentAmount(double amount , double percent)
 
             });
         }
-        else {
+        else
+            {
 
         }
 
@@ -320,10 +323,8 @@ double getPercentAmount(double amount , double percent)
         return time24;
     }
 
-
-
-
     public void goToWebView() {
+
         //Mandatory parameters. Other parameters can be added if required.
     Log.e("tag","1"+" access_code="+accessCode +" order_id="+orderId);
         if(!accessCode.equals("") && !merchantId.equals("") && !currency.equals("") && !amount.equals("")){

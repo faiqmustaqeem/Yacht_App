@@ -141,6 +141,7 @@ public class ShipDetailsActivity extends AppCompatActivity implements View.OnCli
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sip_details);
+        Log.e("ship_details","ship_detials");
         ButterKnife.bind(this);
         initUI();
 
@@ -188,7 +189,7 @@ Log.e("priceD",AppConstants.yachtsModel.getDiscountedPrice());
         tvYachtGuest.setText(AppConstants.yachtsModel.getMax_guest());
         tvGuestNumber.setText(AppConstants.yachtsModel.getMax_guest());
         tvYachtDuration.setText("Minimum " + AppConstants.yachtsModel.getTripDuration() + " Hours");
-        tvPrice.setText(AppConstants.yachtsModel.getCurrency() + " " + AppConstants.yachtsModel.getPrice() + "/Hour");
+        tvPrice.setText( AppConstants.yachtsModel.getPrice() );
         tvfacilities.setText(AppConstants.yachtsModel.getFacilities());
         mCustomPagerAdapter = new CustomPagerAdapter(activity, yachtSliderArrayList);
 

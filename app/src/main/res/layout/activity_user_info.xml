@@ -48,19 +48,39 @@
             android:layout_alignStart="@+id/tilFullName" />
 
 
-        <TextView
-            android:id="@+id/already_have_account"
+        <LinearLayout
+            android:id="@+id/layout1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/ivLogo"
+            android:orientation="horizontal"
             android:layout_marginTop="10dp"
-            android:clickable="true"
-            android:textAlignment="center"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimaryDark"
-            android:text="Click here if you already have account."
+            android:layout_below="@id/ivLogo"
             android:layout_centerHorizontal="true"
-            />
+            >
+
+            <TextView
+                android:id="@+id/have"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimaryDark"
+                android:text=" if you already have account."
+                />
+
+            <TextView
+                android:id="@+id/already_have_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:layout_toRightOf="@id/have"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:textColor="#348000"
+                android:text="Click here"
+                />
+        </LinearLayout>
 
 
         <android.support.design.widget.TextInputLayout
@@ -72,7 +92,7 @@
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:layout_below="@id/already_have_account"
+            android:layout_below="@id/layout1"
             >
 
             <EditText
@@ -304,7 +324,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Phone Number"
-                android:inputType="textEmailAddress"
+                android:inputType="phone"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="14sp"
                 android:textStyle="bold" />

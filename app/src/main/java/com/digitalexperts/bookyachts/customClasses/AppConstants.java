@@ -50,13 +50,20 @@ public class AppConstants {
     public static boolean pay20Percent;
     public static String order_id;
 
+    public static String accessCode = "AVBU02EL68AF26UBFA";//"AVUA02EL69BY16AUYB";
+    public static String merchantId = "43560";//"44675";
+    public static String currency = "AED";
+    public static String amount = ""; // from amount paying now
+    public static String rsaKeyUrl = "https://bookyachts.ae/appresponse/GetRSA.php";
+    public static String redirectUrl = "https://bookyachts.ae/appresponse/ccavResponseHandler.php";
+    public static String cancelUrl = "https://bookyachts.ae/appresponse/ccavResponseHandler.php";
 
-    public static boolean isOnline(Context context) {
+    public static boolean isOnline(Context context)
+    {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo ni = cm.getActiveNetworkInfo();
         if (ni != null && ni.isConnected())
             return true;
-
         return false;
     }
 }

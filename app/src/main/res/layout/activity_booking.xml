@@ -428,6 +428,42 @@
                             android:layout_marginRight="20dp"
                             android:text="Max Pax 08"
                             android:textColor="@color/colorPrimary" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="DATE"
+                            android:textSize="12sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="0dp"
+                            android:paddingTop="0dp">
+
+                            <ImageView
+                                android:layout_width="15dp"
+                                android:layout_height="15dp"
+                                android:layout_gravity="center"
+                                android:src="@android:drawable/ic_menu_my_calendar"
+                                android:tint="@android:color/black" />
+
+                            <EditText
+                                android:id="@+id/etDate"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:focusable="false"
+                                android:hint=""
+                                android:inputType="number"
+                                android:textColor="@android:color/black"
+                                android:textColorHint="@android:color/black"
+                                android:textSize="12sp" />
+
+
+
+                        </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -582,42 +618,7 @@
 
 
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="DATE"
-                            android:textSize="12sp" />
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:paddingBottom="10dp"
-                            android:paddingLeft="0dp"
-                            android:paddingTop="0dp">
-
-                            <ImageView
-                                android:layout_width="15dp"
-                                android:layout_height="15dp"
-                                android:layout_gravity="center"
-                                android:src="@android:drawable/ic_menu_my_calendar"
-                                android:tint="@android:color/black" />
-
-                            <EditText
-                                android:id="@+id/etDate"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp"
-                                android:focusable="false"
-                                android:hint=""
-                                android:inputType="number"
-                                android:textColor="@android:color/black"
-                                android:textColorHint="@android:color/black"
-                                android:textSize="12sp" />
-
-
-
-                        </LinearLayout>
 
 
                             
@@ -647,7 +648,6 @@
                                   />
 
                           </RadioGroup>
-                            
 
 
 

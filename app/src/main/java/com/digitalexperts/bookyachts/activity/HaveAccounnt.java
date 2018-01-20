@@ -310,13 +310,16 @@ public class HaveAccounnt extends AppCompatActivity {
                                 orderId  = dataObject.getString("order_id").substring(0,dataObject.getString("order_id").length()-2); //get from reply of api
                                 AppConstants.order_id=orderId;
                                 Log.e("order_id",orderId);
-                                accessCode = "AVBU02EL68AF26UBFA";
-                                merchantId = "43560";
-                                currency = "AED";
+
+                                AppConstants.order_id=orderId;
+                                accessCode = AppConstants.accessCode;
+                                merchantId = AppConstants.merchantId;
+                                currency = AppConstants.currency;
+                             //   amount = String.valueOf(payingNow); // from amount paying now
                                 amount = String.valueOf(AppConstants.amountPayingNow); // from amount paying now
-                                rsaKeyUrl = "https://bookyachts.ae/appresponse/GetRSA.php";
-                                redirectUrl = "https://bookyachts.ae/appresponse/ccavResponseHandler.php";
-                                cancelUrl = "https://bookyachts.ae/appresponse/ccavResponseHandler.php";
+                                rsaKeyUrl = AppConstants.rsaKeyUrl;
+                                redirectUrl = AppConstants.redirectUrl;
+                                cancelUrl = AppConstants.redirectUrl;
 
                                 spinKit.setVisibility(View.GONE);
                                 goToWebView();

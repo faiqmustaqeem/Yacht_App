@@ -110,10 +110,10 @@ public class ForgotPassword extends AppCompatActivity {
                                         .onPositive(new MaterialDialog.SingleButtonCallback() {
                                             @Override
                                             public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                                                Intent intent = new Intent(activity, DashboardActivity.class);
-                                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                                startActivity(intent);
-                                                activity.finish();
+                                                //Intent intent = new Intent(activity, DashboardActivity.class);
+                                                //intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                               // startActivity(intent);
+                                                //activity.finish();
 
                                             }
                                         })
