@@ -50,8 +50,8 @@ public class AppConstants {
     public static boolean pay20Percent;
     public static String order_id;
 
-    public static String accessCode = "AVBU02EL68AF26UBFA";//"AVUA02EL69BY16AUYB";
-    public static String merchantId = "43560";//"44675";
+    public static String accessCode = "AVUA02EL69BY16AUYB";
+    public static String merchantId = "44675";
     public static String currency = "AED";
     public static String amount = ""; // from amount paying now
     public static String rsaKeyUrl = "https://bookyachts.ae/appresponse/GetRSA.php";
