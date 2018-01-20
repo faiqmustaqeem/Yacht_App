@@ -135,14 +135,7 @@ public class UserInfo extends AppCompatActivity {
         cityId="";
 
         Bundle bundle = getIntent().getExtras();
-      //  if(bundle != null)
-//        {
-//            goToActivity = bundle.getString("goToActivity");
-//        }
-        // spinnerCountry.setOnItemSelectedListener(this);
-        // spinnerState.setOnItemSelectedListener(this);
-        // spinnerCity.setOnItemSelectedListener(this);
-        // hiding action bar
+
         getSupportActionBar().setTitle("User Details");
         // getSupportActionBar()
 

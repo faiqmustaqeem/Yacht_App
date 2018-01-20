@@ -209,7 +209,7 @@
                         <GridView
                             android:id="@+id/gvCalendar"
                             android:layout_width="fill_parent"
-                            android:layout_height="170dp"
+                            android:layout_height="160dp"
                             android:gravity="center"
                             android:listSelector="@android:color/transparent"
                             android:numColumns="7"
@@ -446,108 +446,119 @@
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_height="70dp"
                                 android:weightSum="3">
 
                                 <LinearLayout
                                     android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
+                                    android:layout_height="match_parent"
                                     android:layout_weight="2"
                                     android:paddingBottom="0dp"
                                     android:paddingLeft="0dp"
-                                    android:paddingTop="0dp">
+                                    android:background="@drawable/border"
+                                    android:orientation="vertical"
+                                    android:padding="5dp">
 
-                                    <ImageView
-                                        android:layout_width="15dp"
-                                        android:layout_height="15dp"
-                                        android:layout_gravity="center"
-                                        android:src="@drawable/icon_timeandduration"
-                                        android:tint="@android:color/black" />
+                                   <LinearLayout
+                                       android:layout_width="wrap_content"
+                                       android:layout_height="wrap_content"
+                                       android:layout_gravity="center">
 
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginLeft="10dp"
-                                        android:text="Start Time"
-                                        android:textColor="@android:color/black"
-                                        android:textColorHint="@android:color/black"
-                                        android:textSize="12sp" />
+                                       <ImageView
+                                           android:layout_width="15dp"
+                                           android:layout_height="15dp"
+                                           android:layout_gravity="center"
+                                           android:src="@drawable/icon_timeandduration"
+                                           android:tint="@android:color/black" />
 
-
-                                    <Spinner
-                                        android:id="@+id/hours_spinner"
-                                        android:layout_width="60dp"
-                                        android:layout_height="wrap_content">
-
-                                    </Spinner>
-
-                                    <Spinner
-                                        android:layout_marginLeft="0dp"
-                                        android:id="@+id/am_pm_spinner"
-                                        android:layout_width="60dp"
-                                        android:layout_height="wrap_content">
+                                       <TextView
+                                           android:layout_width="wrap_content"
+                                           android:layout_height="wrap_content"
+                                           android:layout_marginLeft="10dp"
+                                           android:text="Start Time"
+                                           android:textColor="@android:color/black"
+                                           android:textColorHint="@android:color/black"
+                                           android:textSize="12sp" />
+                                   </LinearLayout>
 
 
-                                    </Spinner>
-                                    <!--<EditText-->
-                                        <!--android:id="@+id/txtStartTime"-->
-                                        <!--android:layout_width="wrap_content"-->
-                                        <!--android:layout_height="wrap_content"-->
-                                        <!--android:layout_marginLeft="5dp"-->
-                                        <!--android:editable="false"-->
-                                        <!--android:focusable="false"-->
-                                        <!--android:gravity="center"-->
-                                        <!--android:text="00:00"-->
-                                        <!--android:textColor="@android:color/black"-->
-                                        <!--android:textSize="12sp" />-->
+                                  <LinearLayout
+                                      android:layout_width="match_parent"
+                                      android:layout_height="wrap_content"
+                                     android:layout_marginTop="10dp"
+                                      android:gravity="center">
+                                      <Spinner
+                                          android:id="@+id/hours_spinner"
+                                          android:layout_width="50dp"
+                                          android:layout_height="wrap_content">
+                                      </Spinner>
+
+                                      <Spinner
+                                          android:layout_marginLeft="0dp"
+                                          android:id="@+id/am_pm_spinner"
+                                          android:layout_width="60dp"
+                                          android:layout_height="wrap_content">
+                                      </Spinner>
+                                  </LinearLayout>
+
                                 </LinearLayout>
 
 
                                 <LinearLayout
                                     android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="5dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="20dp"
                                     android:layout_marginTop="0dp"
-                                    android:layout_weight="1">
+                                    android:layout_weight="1"
+                                    android:background="@drawable/border"
+                                    android:orientation="vertical">
 
-                                    <ImageView
-                                        android:layout_width="15dp"
-                                        android:layout_height="15dp"
-                                        android:layout_gravity="center"
-                                        android:src="@drawable/icon_timeandduration"
-                                        android:tint="@android:color/black" />
+                                   <LinearLayout
+                                       android:layout_width="match_parent"
+                                       android:layout_height="wrap_content"
+                                       android:gravity="center">
+                                       <ImageView
+                                           android:layout_width="15dp"
+                                           android:layout_height="15dp"
+                                           android:layout_gravity="center"
+                                           android:src="@drawable/icon_timeandduration"
+                                           android:tint="@android:color/black" />
 
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginLeft="10dp"
-                                        android:text="Duration"
-                                        android:textColor="@android:color/black"
-                                        android:textSize="10sp" />
+                                       <TextView
+                                           android:layout_width="wrap_content"
+                                           android:layout_height="wrap_content"
+                                           android:layout_marginLeft="10dp"
+                                           android:text="Duration"
+                                           android:textColor="@android:color/black"
+                                           android:textSize="10sp" />
+                                   </LinearLayout>
 
-                                    <EditText
-                                        android:id="@+id/txtDuration"
-                                        android:layout_width="24dp"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginLeft="5dp"
-                                        android:gravity="center"
-                                        android:inputType="number"
-                                        android:hint="2"
-                                        android:textColor="@android:color/black"
-                                        android:textSize="12sp" />
+                                   <LinearLayout
+                                       android:layout_width="wrap_content"
+                                       android:layout_height="wrap_content"
+                                       android:layout_gravity="center"
+                                       android:orientation="horizontal"
+                                       >
+
+                                       <EditText
+                                           android:id="@+id/txtDuration"
+                                           android:layout_width="24dp"
+                                           android:layout_height="wrap_content"
+                                           android:layout_marginLeft="5dp"
+                                           android:hint="2"
+                                           android:inputType="number"
+                                           android:textColor="@android:color/black"
+                                           android:textSize="12sp" />
+                                       <TextView
+                                           android:layout_width="wrap_content"
+                                           android:layout_height="wrap_content"
+                                           android:text="HOURS"/>
+                                   </LinearLayout>
                                 </LinearLayout>
+
                             </LinearLayout>
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp"
-                                android:layout_marginRight="10dp"
-                                android:layout_marginTop="8dp"
-                                android:text="Please confirm following booking details"
-                                android:textColor="@android:color/black"
-                                android:textStyle="bold" />
+
 
                             <View
                                 android:layout_width="0dp"
@@ -557,77 +568,10 @@
                                 android:background="#fff"></View>
                         </LinearLayout>
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="NAME"
-                            android:visibility="gone"
-                            android:textSize="12sp" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="0dp"
-                            android:paddingBottom="10dp"
-                            android:paddingLeft="0dp"
-                            android:visibility="gone"
-                            android:paddingTop="0dp">
 
 
-                            <ImageView
-                                android:layout_width="15dp"
-                                android:layout_height="15dp"
-                                android:layout_gravity="center"
-                                android:src="@drawable/icon_your_name"
-                                android:tint="@android:color/black" />
 
-                            <EditText
-                                android:id="@+id/txtName"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp"
-                                android:focusable="true"
-                                android:hint="Enter Your Name"
-                                android:textColor="@android:color/black"
-                                android:textColorHint="@android:color/black"
-                                android:textSize="12sp" />
-                        </LinearLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="PHONE NUMBER"
-                            android:textSize="12sp"
-                            android:visibility="gone" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:paddingBottom="10dp"
-                            android:paddingLeft="00dp"
-                            android:paddingTop="0dp"
-                            android:visibility="gone">
-
-                            <ImageView
-                                android:layout_width="15dp"
-                                android:layout_height="15dp"
-                                android:layout_gravity="center"
-                                android:src="@drawable/icon_phonenumber"
-                                android:tint="@android:color/black" />
-
-                            <EditText
-                                android:id="@+id/txtPhoneNumber"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp"
-                                android:focusable="false"
-                                android:hint=""
-                                android:inputType="phone"
-                                android:textColor="@android:color/black"
-                                android:textColorHint="@android:color/black"
-                                android:textSize="12sp" />
-                        </LinearLayout>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -636,72 +580,6 @@
                             android:visibility="gone"
                             android:textSize="12sp" />
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:paddingBottom="10dp"
-                            android:paddingLeft="0dp"
-                            android:visibility="gone"
-                            android:paddingTop="0dp">
-
-                            <ImageView
-                                android:layout_width="15dp"
-                                android:layout_height="15dp"
-                                android:layout_gravity="center"
-                                android:src="@drawable/icon_email"
-                                android:tint="@android:color/black" />
-
-                            <EditText
-                                android:id="@+id/txtEmail"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp"
-
-                                android:focusable="true"
-                                android:hint="Enter Your Email"
-                                android:textColor="@android:color/black"
-                                android:textColorHint="@android:color/black"
-                                android:textSize="12sp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:background="@drawable/edittext_background"
-                            android:paddingBottom="10dp"
-                            android:paddingLeft="10dp"
-                            android:paddingTop="10dp"
-                            android:visibility="gone">
-
-                            <ImageView
-                                android:layout_width="15dp"
-                                android:layout_height="15dp"
-                                android:layout_gravity="center"
-                                android:src="@drawable/icon_yacht" />
-                            <!--                    <EditText
-                                android:id="@+id/txtSelectYacht"
-                                android:layout_weight="1"
-                                android:layout_width="wrap_content"
-                                android:layout_marginLeft="10dp"
-                                android:hint="Select Yacht"
-                                android:textColorHint="#fff"
-                                android:textSize="12sp"
-                                android:textColor="#fff"
-                                android:editable="false"
-                                android:focusable="false"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/edittext_background"
-                                />-->
-                            <ImageView
-                                android:layout_width="10dp"
-                                android:layout_height="10dp"
-                                android:layout_gravity="center"
-                                android:layout_marginRight="10dp"
-                                android:src="@drawable/icon_plus"
-                                android:visibility="gone" />
-                        </LinearLayout>
 
 
                         <TextView

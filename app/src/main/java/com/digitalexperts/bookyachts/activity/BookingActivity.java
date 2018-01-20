@@ -77,12 +77,10 @@ public class BookingActivity extends AppCompatActivity implements ShowDataInterf
     ImageButton ivForwardMonth;
     @BindView(R.id.gvCalendar)
     GridView gvCalendar;
-    @BindView(R.id.txtName)
-    EditText txtName;
-    @BindView(R.id.txtPhoneNumber)
-    EditText txtPhoneNumber;
-    @BindView(R.id.txtEmail)
-    EditText txtEmail;
+
+
+
+
     @BindView(R.id.tvPrice)
     TextView tvPrice;
     @BindView(R.id.txtSelectYacht)
@@ -467,7 +465,7 @@ public class BookingActivity extends AppCompatActivity implements ShowDataInterf
 
     }
 
-    @OnClick({R.id.ivBackMonth, R.id.liHotslots, R.id.tvAddOnFacilities, R.id.ivForwardMonth, R.id.btnProceedtoTimings, /*bottom navigation*/R.id.ivNavigationIcon, R.id.ivCallBack, R.id.ivContactUs, R.id.ivHotDeals, R.id.ivHome})
+    @OnClick({R.id.ivBackMonth, R.id.liHotslots, R.id.tvAddOnFacilities, R.id.ivForwardMonth, R.id.btnProceedtoTimings, R.id.ivNavigationIcon, R.id.ivCallBack, R.id.ivContactUs, R.id.ivHotDeals, R.id.ivHome})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tvAddOnFacilities:
@@ -635,7 +633,7 @@ public class BookingActivity extends AppCompatActivity implements ShowDataInterf
 
                                 startActivity(new Intent(activity, BookingTimeActivity.class));
                             }
-                            activity.finish();
+                          //  activity.finish();
 /*
                             //go to confirm booking activity
                             Intent i = new Intent(BookingTimeActivity.this, ConfirmBookingDetailsActivity.class);

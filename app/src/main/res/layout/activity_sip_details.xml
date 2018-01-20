@@ -382,7 +382,7 @@
                                 android:padding="4dp"
                                 android:text="Maximum Guests"
                                 android:textColor="@android:color/black"
-                                android:textSize="12sp" />
+                                android:textSize="15sp" />
 
                             <FrameLayout
                                 android:layout_width="0dp"
@@ -395,7 +395,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="15 Guests"
                                 android:textColor="@android:color/black"
-                                android:textSize="10sp" />
+                                android:textSize="15sp" />
                         </LinearLayout>
 
                         <View
@@ -422,7 +422,7 @@
                                 android:padding="4dp"
                                 android:text="Trip Duration"
                                 android:textColor="@android:color/black"
-                                android:textSize="12sp" />
+                                android:textSize="15sp" />
 
                             <FrameLayout
                                 android:layout_width="0dp"
@@ -435,7 +435,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Minimum 2 hours"
                                 android:textColor="@android:color/black"
-                                android:textSize="10sp" />
+                                android:textSize="15sp" />
                         </LinearLayout>
 
                         <View
@@ -463,7 +463,7 @@
                                 android:padding="4dp"
                                 android:text="Capacity"
                                 android:textColor="@android:color/black"
-                                android:textSize="12sp" />
+                                android:textSize="15sp" />
 
                             <FrameLayout
                                 android:layout_width="0dp"
@@ -476,7 +476,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="08 Guests + 01 Captain"
                                 android:textColor="@android:color/black"
-                                android:textSize="10sp" />
+                                android:textSize="15sp" />
                         </LinearLayout>
 
                         <View
@@ -503,7 +503,7 @@
                                 android:padding="4dp"
                                 android:text="Cabins"
                                 android:textColor="@android:color/black"
-                                android:textSize="12sp" />
+                                android:textSize="15sp" />
 
                             <FrameLayout
                                 android:layout_width="0dp"
@@ -516,7 +516,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="01 Cabin, 01 Toilet"
                                 android:textColor="@android:color/black"
-                                android:textSize="10sp" />
+                                android:textSize="15sp" />
                         </LinearLayout>
 
                         <View
@@ -551,7 +551,7 @@
                                 android:layout_gravity="center_vertical"
                                 android:text="Facilities"
                                 android:textColor="@android:color/black"
-                                android:textSize="12sp" />
+                                android:textSize="15sp" />
 
                             <FrameLayout
                                 android:layout_width="0dp"
@@ -566,7 +566,7 @@
                                 android:maxLines="5"
                                 android:layout_gravity="center_vertical"
                                 android:textColor="@android:color/black"
-                                android:textSize="10sp" />
+                                android:textSize="15sp" />
                         </LinearLayout>
 
                         <LinearLayout

@@ -86,7 +86,7 @@ public class HaveAccounnt extends AppCompatActivity {
             case R.id.tvMemberForgetPassword:
                     Intent i=new Intent(activity , ForgotPassword.class);
                     startActivity(i);
-                activity.finish();
+
                 break;
 
         }

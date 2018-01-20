@@ -572,14 +572,7 @@ Log.e("priceD",AppConstants.yachtsModel.getDiscountedPrice());
 
                 Log.e("booknowclicked","book now clicked");
                 startActivity(new Intent(activity, BookingActivity.class));
-//                if (AppController.getInstance().getPrefManger().getUserProfile()==null)
-//                {
-//                    startActivity(new Intent(activity, PaymentFormActivity.class).putExtra("goToActivity", "bookNow"));
-//                }
-//                else
-//                {
-//                    startActivity(new Intent(activity, BookingActivity.class));
-//                }
+
                 break;
         }
 

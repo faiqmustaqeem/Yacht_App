@@ -126,6 +126,7 @@ public class CalendarAdapter extends BaseAdapter {
         String gridvalue = separatedTime[2].replaceFirst("^0*", "");
         if ((Integer.parseInt(gridvalue) > 1) && (position < firstDay)) {
             //dayView.setTextColor(Color.GRAY);
+            Log.e("dayview"+position , "1");
             dayView.setTextColor(context.getResources().getColor(android.R.color.darker_gray));
             dayView.setBackground(context.getResources().getDrawable(R.drawable.calendar_selecter));
             dayView.setTextColor(context.getResources().getColor(android.R.color.darker_gray));
@@ -133,10 +134,12 @@ public class CalendarAdapter extends BaseAdapter {
             dayView.setFocusable(false);
 
         } else if ((Integer.parseInt(gridvalue) < 7) && (position > 28)) {
+            Log.e("dayview"+position , "2");
             dayView.setTextColor(context.getResources().getColor(android.R.color.darker_gray));
             dayView.setClickable(false);
             dayView.setFocusable(false);
         } else {
+            Log.e("dayview"+position , "3");
             // setting curent month's days in blue color.
             dayView.setTextColor(context.getResources().getColor(android.R.color.darker_gray));
             dayView.setBackground(context.getResources().getDrawable(R.drawable.calendar_selecter));
