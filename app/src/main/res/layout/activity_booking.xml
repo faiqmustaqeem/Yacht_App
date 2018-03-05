@@ -461,8 +461,6 @@
                                 android:textColorHint="@android:color/black"
                                 android:textSize="12sp" />
 
-
-
                         </LinearLayout>
 
                         <LinearLayout
@@ -482,7 +480,7 @@
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="70dp"
+                                android:layout_height="80dp"
                                 android:weightSum="3">
 
                                 <LinearLayout
@@ -493,11 +491,12 @@
                                     android:paddingLeft="0dp"
                                     android:background="@drawable/border"
                                     android:orientation="vertical"
-                                    android:padding="5dp">
+                                    android:padding="0dp">
 
                                    <LinearLayout
                                        android:layout_width="wrap_content"
                                        android:layout_height="wrap_content"
+                                       android:layout_marginTop="10dp"
                                        android:layout_gravity="center">
 
                                        <ImageView
@@ -525,14 +524,14 @@
                                       android:gravity="center">
                                       <Spinner
                                           android:id="@+id/hours_spinner"
-                                          android:layout_width="50dp"
+                                          android:layout_width="wrap_content"
                                           android:layout_height="wrap_content">
                                       </Spinner>
 
                                       <Spinner
                                           android:layout_marginLeft="0dp"
                                           android:id="@+id/am_pm_spinner"
-                                          android:layout_width="60dp"
+                                          android:layout_width="wrap_content"
                                           android:layout_height="wrap_content">
                                       </Spinner>
                                   </LinearLayout>
@@ -566,7 +565,7 @@
                                            android:layout_marginLeft="10dp"
                                            android:text="Duration"
                                            android:textColor="@android:color/black"
-                                           android:textSize="10sp" />
+                                           android:textSize="12sp" />
                                    </LinearLayout>
 
                                    <LinearLayout

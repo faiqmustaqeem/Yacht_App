@@ -2,6 +2,7 @@ package com.digitalexperts.bookyachts.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.transition.Visibility;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,6 +19,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.digitalexperts.bookyachts.R;
 import com.digitalexperts.bookyachts.customClasses.AppConstants;
 import com.digitalexperts.bookyachts.customClasses.AppController;
@@ -261,6 +264,7 @@ public class UserInfo extends AppCompatActivity {
                     try {
                         JSONObject jObjError = new JSONObject(response.errorBody().string());
                         Toast.makeText(UserInfo.this, jObjError.getJSONObject("result").getString("response") , Toast.LENGTH_LONG).show();
+                        Log.e("error_message" , jObjError.getJSONObject("result").getString("response"));
                     } catch (Exception e) {
                         Toast.makeText(UserInfo.this, e.getMessage(), Toast.LENGTH_LONG).show();
                     }
@@ -601,6 +605,23 @@ public class UserInfo extends AppCompatActivity {
                         try {
                             JSONObject jObjError = new JSONObject(response.errorBody().string());
                             Toast.makeText(UserInfo.this, jObjError.getJSONObject("result").getString("response") , Toast.LENGTH_LONG).show();
+                            Log.e("error_message" ,jObjError.getJSONObject("result").getString("response") );
+                            btnRegister.setText("PROCEED TO PAYMENT");
+
+                            new MaterialDialog.Builder(UserInfo.this)
+                                    .title("Email Already exists !")
+                                    .content("do you want to login from this Email ?")
+                                    .positiveText("Yes")
+                                    .canceledOnTouchOutside(false)
+                                    .onPositive(new MaterialDialog.SingleButtonCallback() {
+                                        @Override
+                                        public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                                            Intent intent=new Intent(activity ,HaveAccounnt.class);
+                                            startActivity(intent);
+                                        }
+                                    })
+                                    .negativeText("No")
+                                    .show();
                         } catch (Exception e) {
                             Toast.makeText(UserInfo.this, e.getMessage(), Toast.LENGTH_LONG).show();
                         }

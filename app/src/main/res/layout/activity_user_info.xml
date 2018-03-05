@@ -27,7 +27,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-
             app:SpinKit_Color="@color/colorPrimary"
 
             />
@@ -131,6 +130,34 @@
                 android:textStyle="bold" />
         </android.support.design.widget.TextInputLayout>
 
+
+
+
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilMemberEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_below="@id/tilLastName"
+            >
+
+            <EditText
+                android:id="@+id/txtEmailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email Address"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </android.support.design.widget.TextInputLayout>
+
+
         <LinearLayout
             android:id="@+id/spinnerLayout1"
             android:layout_width="match_parent"
@@ -140,7 +167,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
-            android:layout_below="@id/tilLastName"
+            android:layout_below="@id/tilMemberEmail"
             android:weightSum="5">
 
 
@@ -215,32 +242,6 @@
                 />
         </LinearLayout>
 
-
-
-
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/tilMemberEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_below="@id/spinnerLayout3"
-            >
-
-            <EditText
-                android:id="@+id/txtEmailAddress"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Email Address"
-                android:inputType="textEmailAddress"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-        </android.support.design.widget.TextInputLayout>
-
         <android.support.design.widget.TextInputLayout
             android:id="@+id/tilAddress1"
             android:layout_width="match_parent"
@@ -249,7 +250,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
-            android:layout_below="@id/tilMemberEmail"
+            android:layout_below="@id/spinnerLayout3"
             >
 
             <EditText

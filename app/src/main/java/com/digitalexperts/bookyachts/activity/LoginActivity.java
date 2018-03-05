@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.view.Window;
@@ -80,11 +81,11 @@ public class LoginActivity extends AppCompatActivity {
                 break;
             case R.id.tvSignUp:
                 Intent intent = new Intent(activity, RegisterUserActivity.class);
-                if (goToActivity.equals("bookNow")) {
-                  //  intent.putExtra("goToActivity", "bookNow");
-                } else {
-                    //intent.putExtra("goToActivity", "back");
-                }
+//                if (goToActivity.equals("bookNow")) {
+//                  //  intent.putExtra("goToActivity", "bookNow");
+//                } else {
+//                    //intent.putExtra("goToActivity", "back");
+//                }
                 startActivity(intent);
                 finish();
                 break;
@@ -107,6 +108,8 @@ public class LoginActivity extends AppCompatActivity {
             body.put("password", txtPassword.getText().toString());
             body.put("signin_type", "2");
             body.put("gcm_key", AppController.getInstance().getPrefManger().getValue("firebaseId", "").toString());
+
+            Log.e("login_params" , body.toString());
 
 
             service.loginUser(body).enqueue(new Callback<Object>() {
@@ -176,6 +179,7 @@ public class LoginActivity extends AppCompatActivity {
                         } catch (Exception e) {
                             btnLogin.setText("Login");
                             spinKit.setVisibility(View.GONE);
+                            Log.e("error" , e.getMessage());
                             Toast.makeText(activity, "Error", Toast.LENGTH_LONG).show();
 
                             e.printStackTrace();
