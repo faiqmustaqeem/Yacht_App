@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,30 +7,23 @@
     tools:context="com.digitalexperts.bookyachts.activity.BookingTimeActivity">
 
     <ScrollView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <android.support.constraint.ConstraintLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/constraintLayout"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
-                android:padding="15dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:padding="15dp">
 
                 <ImageButton
                     android:id="@+id/ivBackMonth"
-                    android:layout_width="15dp"
+                    android:layout_width="20dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:layout_margin="2dp"
@@ -43,7 +36,7 @@
 
                 <ImageButton
                     android:id="@+id/ivForwardMonth"
-                    android:layout_width="15dp"
+                    android:layout_width="20dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:layout_margin="2dp"
@@ -79,29 +72,22 @@
                     app:layout_constraintTop_toTopOf="parent" />
             </android.support.constraint.ConstraintLayout>
 
-            <android.support.constraint.ConstraintLayout
+            <RelativeLayout
                 android:id="@+id/constraintLayout2"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:layout_marginTop="8dp"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+                android:layout_below="@id/constraintLayout">
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    android:layout_marginTop="8dp">
 
                     <GridView
                         android:id="@+id/gvAllHours"
@@ -214,50 +200,51 @@
                                     app:layout_constraintTop_toBottomOf="@+id/rvTimings5"></android.support.v7.widget.RecyclerView>
                 -->
 
-            </android.support.constraint.ConstraintLayout>
+            </RelativeLayout>
 
-            <ImageView
-                android:id="@+id/ivHotOfferIcon2"
-                android:layout_width="30dp"
-                android:layout_height="0dp"
-                android:layout_marginLeft="0dp"
-                android:layout_marginStart="20dp"
-                android:padding="3dp"
-                android:src="@drawable/ic_hot_offer"
-                android:tint="#ff0000"
-                app:layout_constraintBottom_toBottomOf="@+id/textView"
-                app:layout_constraintRight_toLeftOf="@+id/textView"
-                app:layout_constraintTop_toTopOf="@+id/textView"
-                app:layout_constraintVertical_bias="1.0" />
 
-            <TextView
-                android:id="@+id/textView"
+            <LinearLayout
+                android:id="@+id/linearLayoutNew"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginStart="8dp"
+                android:orientation="horizontal"
+                android:layout_below="@id/constraintLayout2"
+                android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
-                android:text="Hot Offer available for these time slots"
-                android:textColor="@android:color/black"
-                android:textStyle="bold"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+                >
+                <ImageView
+                    android:id="@+id/ivHotOfferIcon2"
+                    android:layout_width="30dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginStart="20dp"
+                    android:padding="3dp"
+                    android:src="@drawable/ic_hot_offer"
+                    android:tint="#ff0000" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="Hot Offer available for these time slots"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
 
             <LinearLayout
                 android:id="@+id/linearLayout1"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="20dp"
                 android:orientation="horizontal"
                 android:weightSum="9"
                 android:layout_marginLeft="8dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView"
                 android:layout_marginRight="8dp"
-                app:layout_constraintRight_toRightOf="parent">
+                android:layout_below="@id/linearLayoutNew"
+                >
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -458,12 +445,11 @@
                 android:layout_marginTop="8dp"
                 android:text="START TIME"
                 android:textSize="12sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout1" />
+                android:layout_below="@id/linearLayout1"/>
 
             <LinearLayout
                 android:id="@+id/linearLayout4"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_marginLeft="18dp"
@@ -472,9 +458,8 @@
                 android:paddingBottom="0dp"
                 android:paddingLeft="0dp"
                 android:paddingTop="0dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView3">
+                android:layout_below="@id/textView3"
+            >
 
                 <EditText
                     android:id="@+id/etStartTime"
@@ -497,12 +482,11 @@
                 android:layout_marginStart="16dp"
                 android:text="DURATION"
                 android:textSize="12sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
+                android:layout_below="@id/linearLayout4"/>
 
             <LinearLayout
                 android:id="@+id/linearLayout5"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_marginLeft="18dp"
@@ -511,10 +495,7 @@
                 android:paddingBottom="0dp"
                 android:paddingLeft="0dp"
                 android:paddingTop="0dp"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4">
+                android:layout_below="@id/textView4">
 
 
                 <EditText
@@ -538,12 +519,11 @@
                 android:layout_marginStart="16dp"
                 android:text="DATE"
                 android:textSize="12sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
+                android:layout_below="@id/linearLayout5"/>
 
             <LinearLayout
                 android:id="@+id/linearLayout6"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_marginLeft="18dp"
@@ -552,10 +532,7 @@
                 android:paddingBottom="0dp"
                 android:paddingLeft="0dp"
                 android:paddingTop="0dp"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView5">
+            android:layout_below="@id/textView5" >
 
                 <EditText
                     android:id="@+id/etDate"
@@ -572,7 +549,7 @@
 
             <LinearLayout
                 android:id="@+id/linearLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
@@ -582,11 +559,7 @@
                 android:layout_marginTop="18dp"
                 android:background="@color/colorPrimary"
                 android:gravity="center"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
+                android:layout_below="@id/linearLayout6">
 
                 <TextView
                     android:id="@+id/tvConfirm"
@@ -600,13 +573,8 @@
                     android:text="PROCEED"
                     android:textColor="@android:color/white"
                     android:textSize="16sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/linearLayout6" />
+                    android:textStyle="bold" />
             </LinearLayout>
-        </android.support.constraint.ConstraintLayout>
+        </RelativeLayout>
     </ScrollView>
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

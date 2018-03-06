@@ -603,6 +603,7 @@ public class UserInfo extends AppCompatActivity {
                         spinKit.setVisibility(View.GONE);
 
                         try {
+
                             JSONObject jObjError = new JSONObject(response.errorBody().string());
                             Toast.makeText(UserInfo.this, jObjError.getJSONObject("result").getString("response") , Toast.LENGTH_LONG).show();
                             Log.e("error_message" ,jObjError.getJSONObject("result").getString("response") );
@@ -622,6 +623,7 @@ public class UserInfo extends AppCompatActivity {
                                     })
                                     .negativeText("No")
                                     .show();
+
                         } catch (Exception e) {
                             Toast.makeText(UserInfo.this, e.getMessage(), Toast.LENGTH_LONG).show();
                         }

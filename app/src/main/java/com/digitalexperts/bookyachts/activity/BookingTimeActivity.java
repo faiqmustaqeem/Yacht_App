@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,8 +25,10 @@ import com.digitalexperts.bookyachts.models.BookingHoursModel;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 
@@ -38,6 +41,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static com.digitalexperts.bookyachts.customClasses.AppConstants.bookYachtModel;
 import static com.digitalexperts.bookyachts.customClasses.AppConstants.bookingDate;
 import static com.digitalexperts.bookyachts.customClasses.AppConstants.bookingDuration;
 
@@ -57,6 +61,14 @@ public class BookingTimeActivity extends AppCompatActivity {
     EditText etDate;
     @BindView(R.id.etStartTime)
     EditText etStartTime;
+
+    @BindView(R.id.tvDay)
+    TextView tvDay;
+
+    @BindView(R.id.ivBackMonth)
+    ImageView ivBackDay;
+    @BindView(R.id.ivForwardMonth)
+    ImageView ivForwardDay;
 
 
 
@@ -81,7 +93,7 @@ public class BookingTimeActivity extends AppCompatActivity {
     GridView gvAllHours;
     public static GridView static_gvAllHours;
 
-    List<BookingHoursModel> allHours;
+    List<BookingHoursModel> allHours = new ArrayList<BookingHoursModel>();
     RVHoursAdapter hoursAdapter;
     AllHoursGVadapter mAdapter;
 
@@ -104,6 +116,32 @@ public class BookingTimeActivity extends AppCompatActivity {
         static_gvAllHours = gvAllHours;
 
         fetchBookedSlots();
+        tvDay.setText(AppConstants.bookYachtModel.getStartDate());
+        ivForwardDay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String newDate=addOneDay(AppConstants.bookYachtModel.getStartDate());
+                AppConstants.bookYachtModel.setStartDate(newDate);
+                initializeAllHours();
+                tvDay.setText(newDate);
+                etDate.setText(newDate);
+                fetchBookedSlots();
+            }
+        });
+
+        ivBackDay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String newDate=subtractOneDay(AppConstants.bookYachtModel.getStartDate());
+                AppConstants.bookYachtModel.setStartDate(newDate);
+                initializeAllHours();
+                tvDay.setText(newDate);
+                etDate.setText(newDate);
+                fetchBookedSlots();
+            }
+        });
+
+
     }
 
     private void fetchBookedSlots() {
@@ -181,6 +219,7 @@ public class BookingTimeActivity extends AppCompatActivity {
                         } else {
 
                             progressDialog.dismiss();
+                           // mAdapter.notifyDataSetChanged();
                             Toast.makeText(BookingTimeActivity.this, message, Toast.LENGTH_LONG).show();
                         }
                     } catch (Exception e) {
@@ -244,23 +283,50 @@ public class BookingTimeActivity extends AppCompatActivity {
 
 
 
-        etDate.setText(bookingDate);
-        mAdapter = new AllHoursGVadapter(this, allHours);
+        etDate.setText(bookYachtModel.getStartDate());
 
-        gvAllHours.setAdapter(mAdapter);
-
-        gvAllHours.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                /*Toast.makeText(BookingTimeActivity.this, ""+allHours.get(0).getTimeText(), Toast.LENGTH_SHORT).show();
-                allHours.remove(0);
-                mAdapter.notifyDataSetChanged();*/
-            }
-        });
+//
+//        gvAllHours.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                /*Toast.makeText(BookingTimeActivity.this, ""+allHours.get(0).getTimeText(), Toast.LENGTH_SHORT).show();
+//                allHours.remove(0);
+//                mAdapter.notifyDataSetChanged();*/
+//            }
+//        });
     }
-
+public String addOneDay(String date)
+{
+    String dt = date;  // Start date
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    Calendar c = Calendar.getInstance();
+    try {
+        c.setTime(sdf.parse(dt));
+    } catch (ParseException e) {
+        e.printStackTrace();
+    }
+    c.add(Calendar.DATE, 1);  // number of days to add, can also use Calendar.DAY_OF_MONTH in place of Calendar.DATE
+    SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
+    String output = sdf1.format(c.getTime());
+    return output;
+}
+    public String subtractOneDay(String date)
+    {
+        String dt = date;  // Start date
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar c = Calendar.getInstance();
+        try {
+            c.setTime(sdf.parse(dt));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        c.add(Calendar.DATE, -1);  // number of days to add, can also use Calendar.DAY_OF_MONTH in place of Calendar.DATE
+        SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
+        String output = sdf1.format(c.getTime());
+        return output;
+    }
     private void initializeAllHours() {
-        allHours = new ArrayList<BookingHoursModel>();
+        allHours.clear();
 
         allHours.add(new BookingHoursModel("false", "false", "12:00 AM"));
         allHours.add(new BookingHoursModel("false", "false", "01:00 AM"));
@@ -289,6 +355,10 @@ public class BookingTimeActivity extends AppCompatActivity {
         allHours.add(new BookingHoursModel("false", "false", "09:00 PM"));
         allHours.add(new BookingHoursModel("false", "false", "10:00 PM"));
         allHours.add(new BookingHoursModel("false", "false", "11:00 PM"));
+
+        mAdapter = new AllHoursGVadapter(this, allHours);
+
+        gvAllHours.setAdapter(mAdapter);
     }
 
     @OnClick({R.id.tvConfirm})

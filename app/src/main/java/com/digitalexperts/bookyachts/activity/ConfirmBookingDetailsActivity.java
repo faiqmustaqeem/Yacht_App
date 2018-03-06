@@ -82,7 +82,7 @@ public class ConfirmBookingDetailsActivity extends AppCompatActivity {
         activity=this;
         getSupportActionBar().setTitle("CONFIRM BOOKING");
 
-        etStartTime.setText(bookingStartTime);
+        etStartTime.setText(AppConstants.bookYachtModel.getStartTime());
 
         etDuration.setText(AppConstants.bookYachtModel.getDuration()+" HOURS");
 
@@ -95,7 +95,7 @@ public class ConfirmBookingDetailsActivity extends AppCompatActivity {
 
 
 
-        etDate.setText(bookingDate);
+        etDate.setText(AppConstants.bookYachtModel.getStartDate());
 
         total =Double.parseDouble(AppConstants.yachtsModel.getPrice())* Double.parseDouble(AppConstants.bookYachtModel.getDuration());
         Log.e("total",total+"");

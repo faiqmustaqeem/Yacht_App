@@ -291,10 +291,16 @@ public class BookingActivity extends AppCompatActivity implements ShowDataInterf
             @Override
             public void onClick(View v)
             {
-                if (AppConstants.bookYachtModel.getStartDate().equals(""))
+                try  {
+                    if (AppConstants.bookYachtModel.getStartDate().equals(""))
+                    {
+                        Toast.makeText(activity, "Please Select Date", Toast.LENGTH_SHORT).show();
+                    }
+                }catch (Exception e)
                 {
                     Toast.makeText(activity, "Please Select Date", Toast.LENGTH_SHORT).show();
                 }
+
 
             }
         });
@@ -368,7 +374,6 @@ public class BookingActivity extends AppCompatActivity implements ShowDataInterf
         });
 
         setUpMenu();
-
 
     }
 

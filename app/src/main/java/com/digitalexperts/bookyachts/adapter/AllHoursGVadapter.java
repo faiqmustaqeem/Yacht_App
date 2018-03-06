@@ -114,15 +114,24 @@ public class AllHoursGVadapter extends BaseAdapter {
                                 }
 
                                 if (validRange) {
-                                    timeSelectCount = 0;
-                                    for (int i = bookingStartTimeIndex; i < (position + 1); i++) {
-//                                    bookingHoursModel.setIsSelected("true");
-                                        allHours.get(i).setIsSelected("true");
+                                    int duration=position - bookingStartTimeIndex+1;
+                                    if(duration > 8)
+                                    {
+                                        Toast.makeText(context, "You can select Maximum 8 hours", Toast.LENGTH_SHORT).show();
                                     }
-                                    tvHours.setBackgroundColor(context.getResources().getColor(R.color.light_blue));
-                                    AppConstants.bookYachtModel.setDuration(String.valueOf(position - bookingStartTimeIndex+1));
-                                    AppConstants.duration=position - bookingStartTimeIndex+1;
-                                    static_tvDuration.setText(AppConstants.bookYachtModel.getDuration() + " HOURS");
+                                    else {
+
+                                        timeSelectCount = 0;
+                                        for (int i = bookingStartTimeIndex; i < (position + 1); i++) {
+//                                    bookingHoursModel.setIsSelected("true");
+                                            allHours.get(i).setIsSelected("true");
+                                        }
+                                        tvHours.setBackgroundColor(context.getResources().getColor(R.color.light_blue));
+
+                                        AppConstants.bookYachtModel.setDuration(String.valueOf(position - bookingStartTimeIndex+1));
+                                        AppConstants.duration=position - bookingStartTimeIndex+1;
+                                        static_tvDuration.setText(AppConstants.bookYachtModel.getDuration() + " HOURS");
+                                    }
                                 } else {
                                     Toast.makeText(context, "You can not include booked hours", Toast.LENGTH_SHORT).show();
                                 }
