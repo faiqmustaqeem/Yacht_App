@@ -94,7 +94,7 @@ public class BookingTimeActivity extends AppCompatActivity {
     public static GridView static_gvAllHours;
 
     List<BookingHoursModel> allHours = new ArrayList<BookingHoursModel>();
-    RVHoursAdapter hoursAdapter;
+//    RVHoursAdapter hoursAdapter;
     AllHoursGVadapter mAdapter;
 
     @Override
