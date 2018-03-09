@@ -1,18 +1,25 @@
 package com.digitalexperts.bookyachts.activity;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.digitalexperts.bookyachts.models.Booking;
 import com.google.gson.Gson;
 import com.digitalexperts.bookyachts.R;
 import com.digitalexperts.bookyachts.adapter.AllHoursGVadapter;
@@ -44,6 +51,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import static com.digitalexperts.bookyachts.customClasses.AppConstants.bookYachtModel;
 import static com.digitalexperts.bookyachts.customClasses.AppConstants.bookingDate;
 import static com.digitalexperts.bookyachts.customClasses.AppConstants.bookingDuration;
+import static com.digitalexperts.bookyachts.customClasses.AppConstants.bookingStartTime;
 
 public class BookingTimeActivity extends AppCompatActivity {
     @BindView(R.id.tvNewPrice)
@@ -69,14 +77,16 @@ public class BookingTimeActivity extends AppCompatActivity {
     ImageView ivBackDay;
     @BindView(R.id.ivForwardMonth)
     ImageView ivForwardDay;
+    @BindView(R.id.spinner_duration)
+    Spinner durationSpinner;
 
 
 
     public static EditText static_etStartTime;
 
-    @BindView(R.id.tvDuration)
-    EditText tvDuration;
-    public static EditText static_tvDuration;
+  //  @BindView(R.id.tvDuration)
+   // EditText tvDuration;
+  //  public static EditText static_tvDuration;
 
     ProgressDialog progressDialog;
 
@@ -93,15 +103,23 @@ public class BookingTimeActivity extends AppCompatActivity {
     GridView gvAllHours;
     public static GridView static_gvAllHours;
 
+
     List<BookingHoursModel> allHours = new ArrayList<BookingHoursModel>();
 //    RVHoursAdapter hoursAdapter;
     AllHoursGVadapter mAdapter;
+
+    Activity activity;
+
+    boolean isAvailable=false;
+    String durationStr="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_time);
         ButterKnife.bind(this);
+
+        activity=this;
 
        // tvSelectYacht.setText();
         tvSelectYacht.setText(AppConstants.yachtsModel.getTitle().substring(0, 2) + "ft");
@@ -116,14 +134,16 @@ public class BookingTimeActivity extends AppCompatActivity {
         static_gvAllHours = gvAllHours;
 
         fetchBookedSlots();
-        tvDay.setText(AppConstants.bookYachtModel.getStartDate());
+        tvDay.setText(getDateInWords(AppConstants.bookYachtModel.getStartDate()));
+
+
         ivForwardDay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String newDate=addOneDay(AppConstants.bookYachtModel.getStartDate());
                 AppConstants.bookYachtModel.setStartDate(newDate);
                 initializeAllHours();
-                tvDay.setText(newDate);
+                tvDay.setText(getDateInWords(newDate));
                 etDate.setText(newDate);
                 fetchBookedSlots();
             }
@@ -135,12 +155,37 @@ public class BookingTimeActivity extends AppCompatActivity {
                 String newDate=subtractOneDay(AppConstants.bookYachtModel.getStartDate());
                 AppConstants.bookYachtModel.setStartDate(newDate);
                 initializeAllHours();
-                tvDay.setText(newDate);
+                tvDay.setText(getDateInWords(newDate));
                 etDate.setText(newDate);
                 fetchBookedSlots();
             }
         });
+        List<String> hours_list=new ArrayList<>();
+        hours_list.add("2");
+        hours_list.add("3");
+        hours_list.add("4");
+        hours_list.add("5");
+        hours_list.add("6");
+        hours_list.add("7");
+        hours_list.add("8");
 
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, hours_list);
+// Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+// Apply the adapter to the spinner
+        durationSpinner.setAdapter(adapter);
+        durationSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                durationStr=adapterView.getItemAtPosition(i).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+             durationStr="2";
+            }
+        });
 
     }
 
@@ -252,50 +297,153 @@ public class BookingTimeActivity extends AppCompatActivity {
 
     private void initUI() {
         static_etStartTime = etStartTime;
-        static_tvDuration = tvDuration;
+      //  static_tvDuration = tvDuration;
         initializeAllHours();
-
-/*        LinearLayoutManager layoutManager1 = new LinearLayoutManager(this);
-        layoutManager1.setOrientation(LinearLayoutManager.HORIZONTAL);
-        rvTimings1.setLayoutManager(layoutManager1);
-        hoursAdapter = new RVHoursAdapter(allHours.subList(0, 6), BookingTimeActivity.this);
-        rvTimings1.setAdapter(hoursAdapter);
-
-        LinearLayoutManager layoutManager2 = new LinearLayoutManager(this);
-        layoutManager2.setOrientation(LinearLayoutManager.HORIZONTAL);
-        rvTimings2.setLayoutManager(layoutManager2);
-        hoursAdapter = new RVHoursAdapter(allHours.subList(6, 12), BookingTimeActivity.this);
-        rvTimings2.setAdapter(hoursAdapter);
-
-        LinearLayoutManager layoutManager3 = new LinearLayoutManager(this);
-        layoutManager3.setOrientation(LinearLayoutManager.HORIZONTAL);
-        rvTimings3.setLayoutManager(layoutManager3);
-        hoursAdapter = new RVHoursAdapter(allHours.subList(12, 18), BookingTimeActivity.this);
-        rvTimings3.setAdapter(hoursAdapter);
-
-        LinearLayoutManager layoutManager4 = new LinearLayoutManager(this);
-        layoutManager4.setOrientation(LinearLayoutManager.HORIZONTAL);
-        rvTimings4.setLayoutManager(layoutManager4);
-        hoursAdapter = new RVHoursAdapter(allHours.subList(18, 24), BookingTimeActivity.this);
-        rvTimings4.setAdapter(hoursAdapter);*/
-
-//        tvNewPrice.setText(AppConstants.discountPercentage+"");
 
 
 
         etDate.setText(bookYachtModel.getStartDate());
 
-//
-//        gvAllHours.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                /*Toast.makeText(BookingTimeActivity.this, ""+allHours.get(0).getTimeText(), Toast.LENGTH_SHORT).show();
-//                allHours.remove(0);
-//                mAdapter.notifyDataSetChanged();*/
-//            }
-//        });
     }
-public String addOneDay(String date)
+
+
+    private void checkTimeAvailability() {
+        progressDialog = new ProgressDialog(activity);
+        progressDialog.setTitle("Loading...");
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.setProgressNumberFormat(null);
+        progressDialog.setProgressPercentFormat(null);
+        progressDialog.show();
+
+
+        //
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(AppConstants.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        WebServices service = retrofit.create(WebServices.class);
+
+        HashMap<String, String> body = new HashMap<>();
+
+        body.put("yacht_id", AppConstants.yachtsModel.getId());
+        Log.e("test", "yacht_id " + AppConstants.yachtsModel.getId());
+
+      //  body.put("api_secret", AppController.getInstance().getPrefManger().getUserProfile().getAuthKey());
+       // Log.e("test", "api_secret " + AppController.getInstance().getPrefManger().getUserProfile().getAuthKey());
+
+        body.put("booking_date", AppConstants.bookYachtModel.getStartDate());
+        Log.e("test", "booking_date " + AppConstants.bookYachtModel.getStartDate());
+
+        body.put("booking_time",convert12HoursFormatTo24Hours(AppConstants.bookYachtModel.getStartTime()));
+        Log.e("test", "booking_time " + convert12HoursFormatTo24Hours(AppConstants.bookYachtModel.getStartTime()));
+
+        body.put("duration", AppConstants.bookYachtModel.getDuration());
+        // Log.e("test","booking_date "+AppConstants.bookYachtModel.getStartDate());
+
+
+        service.checkTimeAvailability(body).enqueue(new Callback<Object>() {
+            @Override
+            public void onResponse(Call<Object> call, Response<Object> response) {
+
+                Gson gson = new Gson();
+                String json = gson.toJson(response.body());
+                Log.e("json_payment", json);
+
+                progressDialog.dismiss();
+                if (response.isSuccessful())
+                {
+                    try {
+
+                        JSONObject jsonObject = new JSONObject(json);
+
+                        JSONObject resultObject = jsonObject.getJSONObject("result");
+
+                        String status = resultObject.getString("status");
+
+                        String message = resultObject.getString("response");
+
+                        if (status.equals("success") || status.equals("error")) {
+
+                            if(message.equals("Yacht is available for this time"))
+                            {
+                                isAvailable=true;
+                            }
+                            else {
+                                isAvailable=false;
+                            }
+
+                            if (isAvailable) {
+                                // booking proceed
+                                Intent i = new Intent(BookingTimeActivity.this, ConfirmBookingDetailsActivity.class);
+                                startActivity(i);
+                                finish();
+
+                            }
+                            else {
+                                // show dialog , booking not available for this date and time
+                                MaterialDialog dialog=new MaterialDialog.Builder(activity)
+                                        .title("Sorry")
+                                        .content("Booking not available for this date and time , please select other day or time !")
+                                        .positiveText("OK")
+                                        .onPositive(new MaterialDialog.SingleButtonCallback() {
+                                            @Override
+                                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                                                dialog.dismiss();
+                                            }
+                                        })
+                                        .show();
+                            }
+
+
+                        }
+                        else
+                        {
+                            MaterialDialog dialog=new MaterialDialog.Builder(activity)
+                                    .title("Sorry")
+                                    .content("Booking not available for this date and time , please select other day or time !")
+                                    .positiveText("OK")
+                                    .onPositive(new MaterialDialog.SingleButtonCallback() {
+                                        @Override
+                                        public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                                            dialog.dismiss();
+                                        }
+                                    })
+                                    .show();
+
+                          //  Toast.makeText(activity, message, Toast.LENGTH_LONG).show();
+                        }
+                    } catch (Exception e) {
+
+                        Log.e("ErrorMessage", e.getMessage());
+//                        Toast.makeText(activity, "Error new ", Toast.LENGTH_LONG).show();
+
+                        e.printStackTrace();
+                    }
+                } else {
+
+                    try {
+                        JSONObject jObjError = new JSONObject(response.errorBody().string());
+                        Toast.makeText(activity, jObjError.getJSONObject("result").getString("response") , Toast.LENGTH_LONG).show();
+                    } catch (Exception e) {
+                        Toast.makeText(activity, e.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Object> call, Throwable t) {
+                Toast.makeText(activity,t.toString(),Toast.LENGTH_LONG).show();
+            }
+
+
+        });
+        //
+
+    }
+
+    public String addOneDay(String date)
 {
     String dt = date;  // Start date
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -367,13 +515,12 @@ public String addOneDay(String date)
             case R.id.tvConfirm:
                 if (etStartTime.getText().toString().equals("")) {
                     Toast.makeText(this, "Set your trip start time and end time", Toast.LENGTH_SHORT).show();
-                } else if (tvDuration.getText().toString().equals("")) {
-                    Toast.makeText(this, "Set your trip end time", Toast.LENGTH_SHORT).show();
+                } else if (durationStr.equals("")) {
+                    Toast.makeText(this, "Set your trip duration", Toast.LENGTH_SHORT).show();
                 } else {
-                    Intent i = new Intent(BookingTimeActivity.this, ConfirmBookingDetailsActivity.class);
-                    startActivity(i);
-                    finish();
-                    break;
+                    checkTimeAvailability();
+
+
                 }
         }
     }
@@ -405,5 +552,14 @@ public String addOneDay(String date)
             ex.printStackTrace();
         }
         return time12;
+    }
+    public String getDateInWords(String date)
+    {
+        String month=date.substring(5,7);
+        String day=date.substring(8,10);
+        String[] monthArray=new String[]{"January" , "Feburary","March" , "April", "May" , "June" , "July" , "August" , "September" , "October" ,"NOvember" , "December"};
+
+        String newDate=day +" "+ monthArray[Integer.parseInt(month)-1];
+        return newDate;
     }
 }

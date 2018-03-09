@@ -18,7 +18,7 @@ import java.util.List;
 
 import static com.digitalexperts.bookyachts.activity.BookingTimeActivity.static_etStartTime;
 import static com.digitalexperts.bookyachts.activity.BookingTimeActivity.static_gvAllHours;
-import static com.digitalexperts.bookyachts.activity.BookingTimeActivity.static_tvDuration;
+//import static com.digitalexperts.bookyachts.activity.BookingTimeActivity.static_tvDuration;
 import static com.digitalexperts.bookyachts.customClasses.AppConstants.bookingDuration;
 import static com.digitalexperts.bookyachts.customClasses.AppConstants.bookingStartTime;
 import static com.digitalexperts.bookyachts.customClasses.AppConstants.bookingStartTimeIndex;
@@ -78,7 +78,8 @@ public class AllHoursGVadapter extends BaseAdapter {
                     if (bookingHoursModel.getIsAlreadyBooked().equals("true")) {
                         Toast.makeText(context, "Already booked", Toast.LENGTH_SHORT).show();
                     } else {
-                        if (timeSelectCount == 0) {
+//                        if (timeSelectCount == 0)
+                        {
                             timeSelectCount++;
                             for (int i = 0; i < allHours.size(); i++) {
                                 allHours.get(i).setIsSelected("false");
@@ -93,7 +94,7 @@ public class AllHoursGVadapter extends BaseAdapter {
                             tvHours.setBackgroundColor(context.getResources().getColor(R.color.light_blue));
                             AppConstants.bookYachtModel.setStartTime( bookingHoursModel.getTimeText());
                             static_etStartTime.setText(AppConstants.bookYachtModel.getStartTime());
-                            static_tvDuration.setText("");
+                           // static_tvDuration.setText("");
 
                             notifyDataSetInvalidated();
                             static_gvAllHours.invalidateViews();
@@ -101,56 +102,57 @@ public class AllHoursGVadapter extends BaseAdapter {
 
 //                            Toast.makeText(context, "Select end time", Toast.LENGTH_SHORT).show();
 
-                        } else if (timeSelectCount == 1) {
-                            //position > (bookingStartTimeIndex + 1
-                            if (position >= (bookingStartTimeIndex + 1)) {
-
-                                boolean validRange = true;
-                                for (int i = bookingStartTimeIndex; i < position + 1; i++) {
-                                    if (allHours.get(i).getIsAlreadyBooked().equals("true")) {
-                                        validRange = false;
-                                        break;
-                                    }
-                                }
-
-                                if (validRange) {
-                                    int duration=position - bookingStartTimeIndex+1;
-                                    if(duration > 8)
-                                    {
-                                        Toast.makeText(context, "You can select Maximum 8 hours", Toast.LENGTH_SHORT).show();
-                                    }
-                                    else {
-
-                                        timeSelectCount = 0;
-                                        for (int i = bookingStartTimeIndex; i < (position + 1); i++) {
-//                                    bookingHoursModel.setIsSelected("true");
-                                            allHours.get(i).setIsSelected("true");
-                                        }
-                                        tvHours.setBackgroundColor(context.getResources().getColor(R.color.light_blue));
-
-                                        AppConstants.bookYachtModel.setDuration(String.valueOf(position - bookingStartTimeIndex+1));
-                                        AppConstants.duration=position - bookingStartTimeIndex+1;
-                                        static_tvDuration.setText(AppConstants.bookYachtModel.getDuration() + " HOURS");
-                                    }
-                                } else {
-                                    Toast.makeText(context, "You can not include booked hours", Toast.LENGTH_SHORT).show();
-                                }
-
-                            } else if (position == bookingStartTimeIndex) {
-                                for (int i = 0; i < allHours.size(); i++) {
-                                    allHours.get(i).setIsSelected("false");
-                                }
-                                timeSelectCount = 0;
-                                static_etStartTime.setText("");
-                                static_tvDuration.setText("");
-                                Toast.makeText(context, "Select start time", Toast.LENGTH_SHORT).show();
-                            } else
-                                {
-                                Toast.makeText(context, "Not valid! Minimum duration must be of 2 hours", Toast.LENGTH_SHORT).show();
-                            }
-                            notifyDataSetInvalidated();
-                            static_gvAllHours.invalidateViews();
                         }
+//                        else if (timeSelectCount == 1) {
+//                            //position > (bookingStartTimeIndex + 1
+//                            if (position >= (bookingStartTimeIndex + 1)) {
+//
+//                                boolean validRange = true;
+//                                for (int i = bookingStartTimeIndex; i < position + 1; i++) {
+//                                    if (allHours.get(i).getIsAlreadyBooked().equals("true")) {
+//                                        validRange = false;
+//                                        break;
+//                                    }
+//                                }
+//
+//                                if (validRange) {
+//                                    int duration=position - bookingStartTimeIndex+1;
+//                                    if(duration > 8)
+//                                    {
+//                                        Toast.makeText(context, "You can select Maximum 8 hours", Toast.LENGTH_SHORT).show();
+//                                    }
+//                                    else {
+//
+//                                        timeSelectCount = 0;
+//                                        for (int i = bookingStartTimeIndex; i < (position + 1); i++) {
+////                                    bookingHoursModel.setIsSelected("true");
+//                                            allHours.get(i).setIsSelected("true");
+//                                        }
+//                                        tvHours.setBackgroundColor(context.getResources().getColor(R.color.light_blue));
+//
+//                                        AppConstants.bookYachtModel.setDuration(String.valueOf(position - bookingStartTimeIndex+1));
+//                                        AppConstants.duration=position - bookingStartTimeIndex+1;
+//                                        static_tvDuration.setText(AppConstants.bookYachtModel.getDuration() + " HOURS");
+//                                    }
+//                                } else {
+//                                    Toast.makeText(context, "You can not include booked hours", Toast.LENGTH_SHORT).show();
+//                                }
+//
+//                            } else if (position == bookingStartTimeIndex) {
+//                                for (int i = 0; i < allHours.size(); i++) {
+//                                    allHours.get(i).setIsSelected("false");
+//                                }
+//                                timeSelectCount = 0;
+//                                static_etStartTime.setText("");
+//                                static_tvDuration.setText("");
+//                                Toast.makeText(context, "Select start time", Toast.LENGTH_SHORT).show();
+//                            } else
+//                                {
+//                                Toast.makeText(context, "Not valid! Minimum duration must be of 2 hours", Toast.LENGTH_SHORT).show();
+//                            }
+//                            notifyDataSetInvalidated();
+//                            static_gvAllHours.invalidateViews();
+//                        }
                         AllHoursGVadapter.this.notifyDataSetChanged();
                         notifyDataSetChanged();
                         notifyDataSetInvalidated();

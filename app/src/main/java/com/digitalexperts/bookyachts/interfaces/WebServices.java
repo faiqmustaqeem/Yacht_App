@@ -82,4 +82,10 @@ public interface WebServices {
     @POST("book/Status_Booking")
     @Headers("Content-Type:application/json")
     public Call<Object> statusChange(@Body HashMap<String, String> body);
+
+
+
+    @POST("book/Booking_check")
+    @Headers("Content-Type:application/json")
+    public Call<Object> checkTimeAvailability(@Body HashMap<String, String> body);
 }
