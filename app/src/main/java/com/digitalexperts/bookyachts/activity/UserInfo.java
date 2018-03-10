@@ -737,7 +737,7 @@ public class UserInfo extends AppCompatActivity {
             body.put("payment_type", "Stripe");
             Log.e("test", "payment_type " + "Stripe");
 
-            body.put("payment_status", "Unpaid");
+            body.put("payment_status", "3");
             Log.e("test", "payment_status " + "Unpaid");
 
             body.put("facilities", AppConstants.inclusiveFacilities);

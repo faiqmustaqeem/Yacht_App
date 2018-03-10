@@ -179,11 +179,13 @@ public class BookingTimeActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 durationStr=adapterView.getItemAtPosition(i).toString();
+                AppConstants.bookYachtModel.setDuration(durationStr);
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
              durationStr="2";
+                AppConstants.bookYachtModel.setDuration(durationStr);
             }
         });
 
@@ -231,7 +233,8 @@ public class BookingTimeActivity extends AppCompatActivity {
                                 Log.e("booked_times","3");
 
                                 JSONArray times = booked_times.getJSONArray("times");
-                                JSONArray duration = booked_times.getJSONArray("duration");
+                             //   JSONArray duration = booked_times.getJSONArray("duration");
+                                JSONArray endTimes = booked_times.getJSONArray("end_time");
 
 
 
@@ -243,8 +246,11 @@ public class BookingTimeActivity extends AppCompatActivity {
                                         String time = allHours.get(i).getTimeText();
                                         Log.e("time_test", time);
                                         for (int j = 0; j < times.length(); j++) {
+
                                             if (time.equals(times.getString(j))) {
-                                                for (int k = i; k < i + Integer.parseInt(duration.getString(j)); k++) {
+                                                int duration=getDuration(times.getString(j),endTimes.getString(j));
+
+                                                for (int k = i; (k < i + duration) && (k < allHours.size()); k++) {
                                                     allHours.get(k).setIsAlreadyBooked("true");
                                                 }
                                                 //   allHours.get(i).setIsAlreadyBooked("true");
@@ -295,6 +301,29 @@ public class BookingTimeActivity extends AppCompatActivity {
         });
     }
 
+    public int getDuration(String start , String end)
+    {
+        String time1_24=convert12HoursFormatTo24Hours(start);
+        String time2_24=convert12HoursFormatTo24Hours(end);
+
+        String str_h1= time1_24.substring(0,2);
+        String str_h2=time2_24.substring(0,2);
+
+        int start_h=Integer.parseInt(str_h1);
+        int end_h=Integer.parseInt(str_h2);
+
+        int duration=0;
+
+        if( start_h < end_h)
+        {
+            duration=end_h-start_h;
+        }
+        else {
+            duration=(24-start_h)+end_h;
+        }
+        return duration;
+
+    }
     private void initUI() {
         static_etStartTime = etStartTime;
       //  static_tvDuration = tvDuration;

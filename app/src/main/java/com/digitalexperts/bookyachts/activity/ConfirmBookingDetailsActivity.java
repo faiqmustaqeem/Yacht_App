@@ -193,7 +193,7 @@ double getPercentAmount(double amount , double percent)
             body.put("payment_type", "Stripe");
             Log.e("test", "payment_type " + "Stripe");
 
-            body.put("payment_status", "Unpaid");
+            body.put("payment_status", "3");
             Log.e("test", "payment_status " + "Unpaid");
 
             body.put("facilities", AppConstants.inclusiveFacilities);
@@ -232,7 +232,7 @@ double getPercentAmount(double amount , double percent)
 
                     Gson gson = new Gson();
                     String json = gson.toJson(response.body());
-                    Log.e("json_payment", json);
+                    Log.e("json_payment_new", json);
 
                     if (response.isSuccessful())
                     {
