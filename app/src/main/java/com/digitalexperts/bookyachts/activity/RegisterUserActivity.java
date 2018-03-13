@@ -69,6 +69,13 @@ public class RegisterUserActivity extends AppCompatActivity {
     @BindView(R.id.txtPhoneNumber)
     EditText txtPhoneNumber;
 
+    @BindView(R.id.txtWhatsappNumber)
+    EditText txtWhatsappNumber;
+
+    @BindView(R.id.txtSpecialInstructions)
+    EditText txtSpecialInstructions;
+
+
     @BindView(R.id.btnRegister)
     Button btnRegister;
 
@@ -77,21 +84,6 @@ public class RegisterUserActivity extends AppCompatActivity {
 
     @BindView(R.id.spinner_country)
     Spinner spinnerCountry;
-
-    @BindView(R.id.spinner_states)
-    Spinner spinnerState;
-
-    @BindView(R.id.spinner_city)
-    Spinner spinnerCity;
-
-    @BindView(R.id.txtAddress1)
-    EditText txtAddress1;
-
-    @BindView(R.id.txtAddress2)
-    EditText txtAddress2;
-
-    @BindView(R.id.txtPostalCode)
-    EditText txtPostalCode;
 
 
 
@@ -102,12 +94,8 @@ public class RegisterUserActivity extends AppCompatActivity {
     String goToActivity;
    // String
    final HashMap<String,String> listCountryModel=new HashMap<>();
-   final HashMap<String,String> listStateModel=new HashMap<>();
-   final HashMap<String,String> listCityModel=new HashMap<>();
 
     String countryName, countryId;
-    String stateName , stateId;
-    String cityName , cityId;
 
     private String accessCode, merchantId, currency, amount, orderId, rsaKeyUrl, redirectUrl, cancelUrl;
 
@@ -129,10 +117,7 @@ public class RegisterUserActivity extends AppCompatActivity {
         activity = this;
          countryName ="" ;
          countryId="";
-         stateName="" ;
-        stateId="";
-         cityName="" ;
-        cityId="";
+
         txtPassword.setText(randomString(8));
 
         Bundle bundle = getIntent().getExtras();
@@ -231,10 +216,10 @@ public class RegisterUserActivity extends AppCompatActivity {
 
                                     Log.e("countryId", countryId);
 
-                                    if(!countryId.equals("")) {
-                                        Log.e("country", countryId);
-                                        getStates(countryId);
-                                    }
+//                                    if(!countryId.equals("")) {
+//                                        Log.e("country", countryId);
+//                                        getStates(countryId);
+//                                    }
                                 }
 
                                 @Override
@@ -274,220 +259,220 @@ public class RegisterUserActivity extends AppCompatActivity {
 
 
     }
-    private void getStates(final String country_id)
-    {
+//    private void getStates(final String country_id)
+//    {
+//
+//        Retrofit retrofit = new Retrofit.Builder()
+//                .baseUrl(AppConstants.BASE_URL)
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .build();
+//
+//        WebServices service = retrofit.create(WebServices.class);
+//
+//        HashMap<String, String> body = new HashMap<>();
+//        body.put("country_id",country_id);
+//
+//        spinKit.setVisibility(View.VISIBLE);
+//        service.fetchStates(body).enqueue(new Callback<Object>()
+//        {
+//
+//            @Override
+//            public void onResponse(Call<Object> call, Response<Object> response)
+//            {
+//
+//                Gson gson = new Gson();
+//                String json = gson.toJson(response.body());
+//
+//                if (response.isSuccessful()) {
+//                    try {
+//
+//                        JSONObject jsonObject = new JSONObject(json);
+//
+//                        JSONObject resultObject = jsonObject.getJSONObject("result");
+//
+//                        String status = resultObject.getString("status");
+//
+//                        String message = resultObject.getString("response");
+//                        if (status.equals("success")) {
+//
+//                            JSONObject dataObject = jsonObject.getJSONObject("data");
+//
+//                            JSONArray statesDataArray = dataObject.getJSONArray("states");
+//                            List<String> states=new ArrayList<>();
+//                            listStateModel.clear();
+//                            for(int i=0 ; i < statesDataArray.length() ; i++)
+//                            {
+//                                JSONObject state=statesDataArray.getJSONObject(i);
+//                                String name=state.getString("name");
+//                                states.add(name);
+//                                String id=state.getString("id");
+//
+//                                listStateModel.put(name , id);
+//
+//                            }
+//                            ArrayAdapter adapter = new ArrayAdapter(RegisterUserActivity.this,android.R.layout.simple_spinner_item,states);
+//                            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//                            spinnerState.setAdapter(adapter);
+//                            spinnerState.setSelected(true);
+//                            spinnerState.setSelection(0);
+//                            spinnerState.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//                                @Override
+//                                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//                                    stateName=adapterView.getItemAtPosition(i).toString();
+//                                    stateId=listStateModel.get(stateName);
+//                                    if(!country_id.equals("229"))
+//                                    {
+//                                        findViewById(R.id.spinnerLayout3).setVisibility(View.VISIBLE);
+//                                        getCities(stateId);
+//                                    }
+//                                    else
+//                                    {
+//                                        cityName=stateName;
+//                                        findViewById(R.id.spinnerLayout3).setVisibility(View.GONE);
+//                                    }
+//                                }
+//
+//                                @Override
+//                                public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//                                }
+//                            });
+//                            spinKit.setVisibility(View.GONE);
+//
+//
+//
+//                        } else {
+//                            spinKit.setVisibility(View.GONE);
+//                            Toast.makeText(activity, message, Toast.LENGTH_LONG).show();
+//                        }
+//                    } catch (Exception e) {
+//                        spinKit.setVisibility(View.GONE);
+//                        Toast.makeText(activity, "Error", Toast.LENGTH_LONG).show();
+//
+//                        e.printStackTrace();
+//                    }
+//                } else {
+//
+//                    spinKit.setVisibility(View.GONE);
+//                    try {
+//                        JSONObject jObjError = new JSONObject(response.errorBody().string());
+//                        Toast.makeText(RegisterUserActivity.this, jObjError.getJSONObject("result").getString("response") , Toast.LENGTH_LONG).show();
+//                    } catch (Exception e) {
+//                        Toast.makeText(RegisterUserActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+//                    }
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<Object> call, Throwable t) {
+//
+//            }
+//        });
+//
+//    }
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(AppConstants.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        WebServices service = retrofit.create(WebServices.class);
-
-        HashMap<String, String> body = new HashMap<>();
-        body.put("country_id",country_id);
-
-        spinKit.setVisibility(View.VISIBLE);
-        service.fetchStates(body).enqueue(new Callback<Object>()
-        {
-
-            @Override
-            public void onResponse(Call<Object> call, Response<Object> response)
-            {
-
-                Gson gson = new Gson();
-                String json = gson.toJson(response.body());
-
-                if (response.isSuccessful()) {
-                    try {
-
-                        JSONObject jsonObject = new JSONObject(json);
-
-                        JSONObject resultObject = jsonObject.getJSONObject("result");
-
-                        String status = resultObject.getString("status");
-
-                        String message = resultObject.getString("response");
-                        if (status.equals("success")) {
-
-                            JSONObject dataObject = jsonObject.getJSONObject("data");
-
-                            JSONArray statesDataArray = dataObject.getJSONArray("states");
-                            List<String> states=new ArrayList<>();
-                            listStateModel.clear();
-                            for(int i=0 ; i < statesDataArray.length() ; i++)
-                            {
-                                JSONObject state=statesDataArray.getJSONObject(i);
-                                String name=state.getString("name");
-                                states.add(name);
-                                String id=state.getString("id");
-
-                                listStateModel.put(name , id);
-
-                            }
-                            ArrayAdapter adapter = new ArrayAdapter(RegisterUserActivity.this,android.R.layout.simple_spinner_item,states);
-                            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                            spinnerState.setAdapter(adapter);
-                            spinnerState.setSelected(true);
-                            spinnerState.setSelection(0);
-                            spinnerState.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                                @Override
-                                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                                    stateName=adapterView.getItemAtPosition(i).toString();
-                                    stateId=listStateModel.get(stateName);
-                                    if(!country_id.equals("229"))
-                                    {
-                                        findViewById(R.id.spinnerLayout3).setVisibility(View.VISIBLE);
-                                        getCities(stateId);
-                                    }
-                                    else
-                                    {
-                                        cityName=stateName;
-                                        findViewById(R.id.spinnerLayout3).setVisibility(View.GONE);
-                                    }
-                                }
-
-                                @Override
-                                public void onNothingSelected(AdapterView<?> adapterView) {
-
-                                }
-                            });
-                            spinKit.setVisibility(View.GONE);
-
-
-
-                        } else {
-                            spinKit.setVisibility(View.GONE);
-                            Toast.makeText(activity, message, Toast.LENGTH_LONG).show();
-                        }
-                    } catch (Exception e) {
-                        spinKit.setVisibility(View.GONE);
-                        Toast.makeText(activity, "Error", Toast.LENGTH_LONG).show();
-
-                        e.printStackTrace();
-                    }
-                } else {
-
-                    spinKit.setVisibility(View.GONE);
-                    try {
-                        JSONObject jObjError = new JSONObject(response.errorBody().string());
-                        Toast.makeText(RegisterUserActivity.this, jObjError.getJSONObject("result").getString("response") , Toast.LENGTH_LONG).show();
-                    } catch (Exception e) {
-                        Toast.makeText(RegisterUserActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Object> call, Throwable t) {
-
-            }
-        });
-
-    }
-
-    private void getCities(String state_id)
-    {
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(AppConstants.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        WebServices service = retrofit.create(WebServices.class);
-
-        HashMap<String, String> body = new HashMap<>();
-        body.put("state_id",state_id);
-
-        spinKit.setVisibility(View.VISIBLE);
-        service.fetchCities(body).enqueue(new Callback<Object>()
-        {
-
-            @Override
-            public void onResponse(Call<Object> call, Response<Object> response)
-            {
-
-                Gson gson = new Gson();
-                String json = gson.toJson(response.body());
-
-                if (response.isSuccessful()) {
-                    try {
-
-                        JSONObject jsonObject = new JSONObject(json);
-
-                        JSONObject resultObject = jsonObject.getJSONObject("result");
-
-                        String status = resultObject.getString("status");
-
-                        String message = resultObject.getString("response");
-
-                        if (status.equals("success")) {
-
-                            JSONObject dataObject = jsonObject.getJSONObject("data");
-
-                            JSONArray citiesDataArray = dataObject.getJSONArray("cities");
-                            List<String> cities=new ArrayList<>();
-                            listCityModel.clear();
-                            for(int i=0 ; i < citiesDataArray.length() ; i++)
-                            {
-                                JSONObject city=citiesDataArray.getJSONObject(i);
-                                String name=city.getString("name");
-                                cities.add(name);
-                                String id=city.getString("id");
-
-                                listCityModel.put(name , id);
-
-                            }
-                            ArrayAdapter adapter = new ArrayAdapter(RegisterUserActivity.this,android.R.layout.simple_spinner_item,cities);
-                            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                            spinnerCity.setAdapter(adapter);
-                            spinnerCity.setSelected(true);
-                            spinnerCity.setSelection(0);
-                            spinnerCity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                                @Override
-                                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                                    cityName=adapterView.getItemAtPosition(i).toString();
-                                    cityId=listCityModel.get(cityName);
-                                }
-
-                                @Override
-                                public void onNothingSelected(AdapterView<?> adapterView) {
-
-                                }
-                            });
-                            spinKit.setVisibility(View.GONE);
-
-
-
-                        } else {
-                            spinKit.setVisibility(View.GONE);
-                            Toast.makeText(activity, message, Toast.LENGTH_LONG).show();
-                        }
-                    } catch (Exception e) {
-                        spinKit.setVisibility(View.GONE);
-                        Toast.makeText(activity, "Error", Toast.LENGTH_LONG).show();
-
-                        e.printStackTrace();
-                    }
-                } else {
-
-                    spinKit.setVisibility(View.GONE);
-                    try {
-                        JSONObject jObjError = new JSONObject(response.errorBody().string());
-                        Toast.makeText(RegisterUserActivity.this, jObjError.getJSONObject("result").getString("response") , Toast.LENGTH_LONG).show();
-                    } catch (Exception e) {
-                        Toast.makeText(RegisterUserActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Object> call, Throwable t) {
-
-            }
-        });
-
-    }
+//    private void getCities(String state_id)
+//    {
+//
+//        Retrofit retrofit = new Retrofit.Builder()
+//                .baseUrl(AppConstants.BASE_URL)
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .build();
+//
+//        WebServices service = retrofit.create(WebServices.class);
+//
+//        HashMap<String, String> body = new HashMap<>();
+//        body.put("state_id",state_id);
+//
+//        spinKit.setVisibility(View.VISIBLE);
+//        service.fetchCities(body).enqueue(new Callback<Object>()
+//        {
+//
+//            @Override
+//            public void onResponse(Call<Object> call, Response<Object> response)
+//            {
+//
+//                Gson gson = new Gson();
+//                String json = gson.toJson(response.body());
+//
+//                if (response.isSuccessful()) {
+//                    try {
+//
+//                        JSONObject jsonObject = new JSONObject(json);
+//
+//                        JSONObject resultObject = jsonObject.getJSONObject("result");
+//
+//                        String status = resultObject.getString("status");
+//
+//                        String message = resultObject.getString("response");
+//
+//                        if (status.equals("success")) {
+//
+//                            JSONObject dataObject = jsonObject.getJSONObject("data");
+//
+//                            JSONArray citiesDataArray = dataObject.getJSONArray("cities");
+//                            List<String> cities=new ArrayList<>();
+//                            listCityModel.clear();
+//                            for(int i=0 ; i < citiesDataArray.length() ; i++)
+//                            {
+//                                JSONObject city=citiesDataArray.getJSONObject(i);
+//                                String name=city.getString("name");
+//                                cities.add(name);
+//                                String id=city.getString("id");
+//
+//                                listCityModel.put(name , id);
+//
+//                            }
+//                            ArrayAdapter adapter = new ArrayAdapter(RegisterUserActivity.this,android.R.layout.simple_spinner_item,cities);
+//                            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//                            spinnerCity.setAdapter(adapter);
+//                            spinnerCity.setSelected(true);
+//                            spinnerCity.setSelection(0);
+//                            spinnerCity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//                                @Override
+//                                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//                                    cityName=adapterView.getItemAtPosition(i).toString();
+//                                    cityId=listCityModel.get(cityName);
+//                                }
+//
+//                                @Override
+//                                public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//                                }
+//                            });
+//                            spinKit.setVisibility(View.GONE);
+//
+//
+//
+//                        } else {
+//                            spinKit.setVisibility(View.GONE);
+//                            Toast.makeText(activity, message, Toast.LENGTH_LONG).show();
+//                        }
+//                    } catch (Exception e) {
+//                        spinKit.setVisibility(View.GONE);
+//                        Toast.makeText(activity, "Error", Toast.LENGTH_LONG).show();
+//
+//                        e.printStackTrace();
+//                    }
+//                } else {
+//
+//                    spinKit.setVisibility(View.GONE);
+//                    try {
+//                        JSONObject jObjError = new JSONObject(response.errorBody().string());
+//                        Toast.makeText(RegisterUserActivity.this, jObjError.getJSONObject("result").getString("response") , Toast.LENGTH_LONG).show();
+//                    } catch (Exception e) {
+//                        Toast.makeText(RegisterUserActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+//                    }
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<Object> call, Throwable t) {
+//
+//            }
+//        });
+//
+//    }
 
     private void register() {
         if (checkValidation()) {
@@ -504,12 +489,16 @@ public class RegisterUserActivity extends AppCompatActivity {
             body.put("first_name",txtFirstName.getText().toString());
             body.put("last_name",txtLastName.getText().toString());
             body.put("country_id",countryId);
-            body.put("state_id",stateId);
-            body.put("city_id",cityId);
+            body.put("whatsapp_number" , txtWhatsappNumber.getText().toString());
+            body.put("special_instructions" , txtSpecialInstructions.getText().toString());
+
+
+//            body.put("state_id",stateId);
+//            body.put("city_id",cityId);
             body.put("email", txtEmailAddress.getText().toString());
-            body.put("address_1",txtAddress1.getText().toString());
-            body.put("address_2",txtAddress2.getText().toString());
-            body.put("postal_code",txtPostalCode.getText().toString());
+//            body.put("address_1",txtAddress1.getText().toString());
+//            body.put("address_2",txtAddress2.getText().toString());
+//            body.put("postal_code",txtPostalCode.getText().toString());
             body.put("phone_number",txtPhoneNumber.getText().toString());
             body.put("password", txtPassword.getText().toString());
             body.put("signup_type", "2");
@@ -529,6 +518,8 @@ public class RegisterUserActivity extends AppCompatActivity {
                     Gson gson = new Gson();
                     String json = gson.toJson(response.body());
 
+
+                    Log.e("reponse" ,json);
                     if (response.isSuccessful()) {
                         try {
 
@@ -561,18 +552,17 @@ public class RegisterUserActivity extends AppCompatActivity {
                                 userModel.setEmail(txtEmailAddress.getText().toString());
 
                                 userModel.setCountry(countryName);
-                                userModel.setState(stateName);
-                                userModel.setCity(cityName);
-                                userModel.setPostalCode(txtPostalCode.getText().toString());
+                              //  userModel.setState(stateName);
+                               // userModel.setCity(cityName);
+                               // userModel.setPostalCode(txtPostalCode.getText().toString());
                                 userModel.setContactNo(txtPhoneNumber.getText().toString());
-                                userModel.setAddress(txtAddress1.getText().toString());
+                               // userModel.setAddress(txtAddress1.getText().toString());
 
                                 AppController.getInstance().getPrefManger().setUserProfile(userModel);
 
-                                if(goToActivity.equals("bookNow"))
-                                {
-                                    startActivity(new Intent(activity,BookingActivity.class));
-                                }
+
+                                  //  startActivity(new Intent(activity,BookingActivity.class));
+
 
 
 
@@ -591,7 +581,8 @@ public class RegisterUserActivity extends AppCompatActivity {
                             btnRegister.setText("Register");
                             spinKit.setVisibility(View.GONE);
                             Toast.makeText(activity, "Error", Toast.LENGTH_LONG).show();
-
+                            if(e.getMessage()!=null)
+                            Log.e("error" , e.getMessage());
                             e.printStackTrace();
                         }
                     } else {
@@ -641,19 +632,9 @@ public class RegisterUserActivity extends AppCompatActivity {
             Toast.makeText(this, "Enter Contact Number", Toast.LENGTH_LONG).show();
             return false;
         }
-        else if (txtAddress1.getText().toString().equals("")) {
-
-            Toast.makeText(this, "Enter Address", Toast.LENGTH_LONG).show();
-            return false;
-        }
-
 
         else if(countryId.equals("")){
             Toast.makeText(this , "Select Country",Toast.LENGTH_LONG);
-            return false;
-        }
-        else if(stateId.equals("")){
-            Toast.makeText(this , "Select State",Toast.LENGTH_LONG);
             return false;
         }
 

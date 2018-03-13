@@ -440,6 +440,44 @@
                                 android:textSize="15sp" />
                         </LinearLayout>
 
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="4dp"
+                            android:weightSum="5">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:src="@drawable/icon_yacht"
+                                    android:tint="@android:color/black" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="4dp"
+                                    android:text="Cabins"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="15sp" />
+
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/tvCabins"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:text="01 Cabin, 01 Toilet"
+                                android:textColor="@android:color/black"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="0.5dp"
@@ -486,43 +524,6 @@
                             android:layout_height="0.5dp"
                             android:background="@android:color/darker_gray" />
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:weightSum="5"
-                            android:padding="4dp">
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="2">
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="match_parent"
-                                    android:src="@drawable/icon_yacht"
-                                    android:tint="@android:color/black" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="4dp"
-                                    android:text="Cabins"
-                                    android:textColor="@android:color/black"
-                                    android:textSize="15sp" />
-
-                            </LinearLayout>
-
-                            <TextView
-                                android:id="@+id/tvCabins"
-                                android:layout_width="0dp"
-                                android:layout_weight="3"
-                                android:layout_height="wrap_content"
-                                android:text="01 Cabin, 01 Toilet"
-                                android:textColor="@android:color/black"
-                                android:textSize="15sp" />
-                        </LinearLayout>
-
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="0.5dp"
@@ -559,7 +560,7 @@
                                     android:layout_gravity="center_vertical"
                                     android:text="Facilities"
                                     android:textColor="@android:color/black"
-                                    android:textSize="14sp" />
+                                    android:textSize="15sp" />
 
                             </LinearLayout>
                             <TextView
