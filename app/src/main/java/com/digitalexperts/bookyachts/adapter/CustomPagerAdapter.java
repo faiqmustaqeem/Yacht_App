@@ -71,7 +71,10 @@ public class CustomPagerAdapter extends PagerAdapter {
                     }
                 });*/
 
-        Glide.with(mContext).load("https://bookyachts.ae/googleYacht/uploads/images/" + yachtSliderArrayList.get(position).toString()).centerCrop().into(imageView);
+        Glide.with(mContext).load("https://bookyachts.ae/googleYacht/uploads/images/" + yachtSliderArrayList.get(position).toString())
+                .placeholder(R.drawable.loading)
+                .centerCrop()
+                .into(imageView);
 
 
         container.addView(itemView);

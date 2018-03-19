@@ -47,6 +47,8 @@ public class LoginActivity extends AppCompatActivity {
     TextView tvSignUp;
     @BindView(R.id.spin_kit)
     SpinKitView spinKit;
+    @BindView(R.id.tvMemberForgetPassword)
+    TextView forgotPassword;
 
     String goToActivity;
 
@@ -73,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    @OnClick({R.id.btnLogin, R.id.tvSignUp})
+    @OnClick({R.id.btnLogin, R.id.tvSignUp , R.id.tvMemberForgetPassword})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btnLogin:
@@ -88,6 +90,12 @@ public class LoginActivity extends AppCompatActivity {
 //                }
                 startActivity(intent);
                 finish();
+                break;
+
+            case R.id.tvMemberForgetPassword:
+                Intent i=new Intent(activity , ForgotPassword.class);
+                startActivity(i);
+
                 break;
         }
     }
@@ -121,6 +129,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     if (response.isSuccessful()) {
                         try {
+                            Log.e("login" , json);
                             JSONObject jsonObject = new JSONObject(json);
                             JSONObject resultObject = jsonObject.getJSONObject("result");
                             String status = resultObject.getString("status");
@@ -139,32 +148,32 @@ public class LoginActivity extends AppCompatActivity {
                                 userModel.setEmail(userDataObject.getString("email"));
                                 userModel.setCountry(userDataObject.getString("country_name"));
 
-                                userModel.setState(userDataObject.getString("state_name"));
-                                if(userDataObject.getString("country_name").equals("United Arab Emirates"))
-                                {
-                                    userModel.setCity(userDataObject.getString("state_name"));
-                                }
-                                else {
-                                    userModel.setCity(userDataObject.getString("city_name"));
-                                }
-                                userModel.setPostalCode(userDataObject.getString("postal_code"));
+//                                userModel.setState(userDataObject.getString("state_name"));
+//                                if(userDataObject.getString("country_name").equals("United Arab Emirates"))
+//                                {
+//                                    userModel.setCity(userDataObject.getString("state_name"));
+//                                }
+//                                else {
+//                                    userModel.setCity(userDataObject.getString("city_name"));
+//                                }
+                              //  userModel.setPostalCode(userDataObject.getString("postal_code"));
                                 userModel.setContactNo(userDataObject.getString("phone_number"));
-                                userModel.setAddress(userDataObject.getString("address_1"));
+                               // userModel.setAddress(userDataObject.getString("address_1"));
 
                                 AppController.getInstance().getPrefManger().setUserProfile(userModel);
 
 
 
-                                if (goToActivity.equals("bookNow"))
-                                {
-                                    Intent intent = new Intent(activity, BookingActivity.class);
-                                    // intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                    startActivity(intent);
-                                }
-                                else if (goToActivity.equals("back"))
-                                {
-
-                                }
+//                                if (goToActivity.equals("bookNow"))
+//                                {
+//                                    Intent intent = new Intent(activity, BookingActivity.class);
+//                                    // intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                                    startActivity(intent);
+//                                }
+//                                else if (goToActivity.equals("back"))
+//                                {
+//
+//                                }
 
                                 Toast.makeText(activity, "Login Successfully", Toast.LENGTH_SHORT).show();
                                 spinKit.setVisibility(View.GONE);

@@ -203,7 +203,7 @@ public class BookingActivity extends AppCompatActivity implements ShowDataInterf
         txtSelectYacht.setText(AppConstants.yachtsModel.getTitle().substring(0, 2) + "ft");
 //       txtGuest.setHint("Max Number Of Guest " + AppConstants.yachtsModel.getMax_guest() + " Guests");
 
-        txtGuest.setHint("Max Pax " + AppConstants.yachtsModel.getMax_guest());
+        txtGuest.setText("Max Pax " + AppConstants.yachtsModel.getMax_guest());
         // setting facilities
         tvInclusiveFacilities.setText(AppConstants.inclusiveFacilities);
 

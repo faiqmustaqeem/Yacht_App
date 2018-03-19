@@ -581,6 +581,7 @@
                                            android:layout_height="wrap_content"
                                            android:layout_marginLeft="5dp"
                                            android:hint="2"
+                                           android:imeOptions="actionDone"
                                            android:inputType="number"
                                            android:textColor="@android:color/black"
                                            android:textSize="12sp" />

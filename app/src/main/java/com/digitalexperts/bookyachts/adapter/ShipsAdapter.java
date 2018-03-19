@@ -91,6 +91,7 @@ public class ShipsAdapter extends RecyclerView.Adapter<ShipsAdapter.MyViewHolder
 
         Picasso.with(activity)
                 .setIndicatorsEnabled(true);
+
         Picasso.with(activity)
                 .load("https://bookyachts.ae/googleYacht/uploads/images/" + yachtsModel.getPicturePath())
 

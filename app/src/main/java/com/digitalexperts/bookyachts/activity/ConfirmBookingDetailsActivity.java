@@ -106,7 +106,7 @@ public class ConfirmBookingDetailsActivity extends AppCompatActivity {
 
         String percent=AppConstants.pay20Percent ? "20" : "100";
 
-        etPercent.setText(percent+" %");
+
 
 
 
@@ -120,7 +120,7 @@ public class ConfirmBookingDetailsActivity extends AppCompatActivity {
         {
             payingNow=total;
         }
-
+        etPercent.setText(percent+" %" + "( "+payingNow+" AED )");
         AppConstants.amountPayingNow=payingNow;
         double remaining=total-payingNow;
         AppConstants.remainingAmount=remaining;

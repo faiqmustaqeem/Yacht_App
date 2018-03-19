@@ -100,24 +100,22 @@ public class ForgotPassword extends AppCompatActivity {
 
 
                                 spinKit.setVisibility(View.GONE);
-                               // Toast.makeText(activity , message , Toast.LENGTH_LONG).show();
-                                MaterialStyledDialog materialStyledDialog= new MaterialStyledDialog.Builder(ForgotPassword.this)
-                                        .setTitle("Success")
-                                        .setDescription(message)
-                                        //.setDescription("What can we improve? Your feedback is always welcome.")
-                                        //.setCustomView(customView)
-                                        .setPositiveText("OK")
+
+                                new MaterialDialog.Builder(ForgotPassword.this)
+                                        .title("Password sent to Email !")
+                                        .content("your passowrd has been sent to your email , you can now now login with that password")
+                                        .positiveText("login")
+                                        .canceledOnTouchOutside(false)
                                         .onPositive(new MaterialDialog.SingleButtonCallback() {
                                             @Override
                                             public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                                                //Intent intent = new Intent(activity, DashboardActivity.class);
-                                                //intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                               // startActivity(intent);
-                                                //activity.finish();
-
+                                                Intent intent=new Intent(activity ,HaveAccounnt.class);
+                                                startActivity(intent);
+                                                finish();
                                             }
                                         })
                                         .show();
+
 
                                 btn.setText("Send Email to reset passowrd");
 

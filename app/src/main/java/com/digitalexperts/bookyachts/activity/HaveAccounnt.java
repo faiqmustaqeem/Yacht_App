@@ -118,6 +118,7 @@ public class HaveAccounnt extends AppCompatActivity {
                     String json = gson.toJson(response.body());
 
                     if (response.isSuccessful()) {
+                        Log.e("login" , json);
                         try {
                             JSONObject jsonObject = new JSONObject(json);
                             JSONObject resultObject = jsonObject.getJSONObject("result");
@@ -134,18 +135,18 @@ public class HaveAccounnt extends AppCompatActivity {
                                 userModel.setAuthKey(userDataObject.getString("api_secret"));
                                 userModel.setEmail(userDataObject.getString("email"));
                                 userModel.setCountry(userDataObject.getString("country_name"));
-                                userModel.setState(userDataObject.getString("state_name"));
-                                if(userDataObject.getString("country_name").equals("United Arab Emirates"))
-                                {
-                                    userModel.setCity(userDataObject.getString("state_name"));
-                                }
-                                else {
-                                    userModel.setCity(userDataObject.getString("city_name"));
-                                }
+                               // userModel.setState(userDataObject.getString("state_name"));
+//                                if(userDataObject.getString("country_name").equals("United Arab Emirates"))
+//                                {
+//                                    userModel.setCity(userDataObject.getString("state_name"));
+//                                }
+//                                else {
+//                                   // userModel.setCity(userDataObject.getString("city_name"));
+//                                }
 
-                                userModel.setPostalCode(userDataObject.getString("postal_code"));
+                             //   userModel.setPostalCode(userDataObject.getString("postal_code"));
                                 userModel.setContactNo(userDataObject.getString("phone_number"));
-                                userModel.setAddress(userDataObject.getString("address_1"));
+                              //  userModel.setAddress(userDataObject.getString("address_1"));
 
 
                                 AppController.getInstance().getPrefManger().setUserProfile(userModel);

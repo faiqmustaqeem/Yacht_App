@@ -223,7 +223,7 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
         // attach to current activity;
         resideMenu = new ResideMenu(this);
         //resideMenu.setUse3D(true);
-        resideMenu.setBackground(R.drawable.splash_bg_two);
+        resideMenu.setBackground(R.drawable.splash_bg);
         resideMenu.attachToActivity(this);
 
         //valid scale factor is between 0.0f and 1.0f. leftmenu'width is 150dip.
