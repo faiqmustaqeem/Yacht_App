@@ -348,7 +348,7 @@
                 android:id="@+id/btnRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="?attr/selectableItemBackground"
+                android:background="#3f8b0b"
                 android:clickable="true"
                 android:gravity="center"
                 android:padding="12dp"

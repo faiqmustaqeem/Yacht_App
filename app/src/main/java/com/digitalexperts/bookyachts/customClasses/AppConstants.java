@@ -49,7 +49,7 @@ public class AppConstants {
     public static String bookingStartTime;
     public static boolean pay20Percent;
     public static String order_id;
-
+ public static  String no_of_guests;
     public static String accessCode = "AVUA02EL69BY16AUYB";
     public static String merchantId = "44675";
     public static String currency = "AED";

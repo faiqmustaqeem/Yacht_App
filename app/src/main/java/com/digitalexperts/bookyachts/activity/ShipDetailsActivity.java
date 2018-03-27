@@ -37,9 +37,11 @@ import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -64,7 +66,9 @@ public class ShipDetailsActivity extends AppCompatActivity implements View.OnCli
 
     // Initializing Required view  by Butter Knife
     @BindView(R.id.tvBookNow1)
-    TextView tvBookNow1;
+    LinearLayout tvBookNow1;
+    @BindView(R.id.tvBookNow2)
+    LinearLayout tvBookNow2;
     @BindView(R.id.spin_kit)
     SpinKitView spinKit;
     @BindView(R.id.ivYachtImage)
@@ -83,6 +87,10 @@ public class ShipDetailsActivity extends AppCompatActivity implements View.OnCli
     TextView tvGuestNumber;
     @BindView(R.id.tvYachtDuration)
     TextView tvYachtDuration;
+    @BindView(R.id.tvCabins)
+    TextView tvCabins;
+    @BindView(R.id.tvbuildname)
+    TextView tvBuildName;
 
     @BindView(R.id.tvPrice)
     TextView tvPrice;
@@ -121,6 +129,9 @@ public class ShipDetailsActivity extends AppCompatActivity implements View.OnCli
     ImageView ivHotDeals;
     @BindView(R.id.ivContactUs)
     ImageView ivContactUs;
+    @BindView(R.id.tvPeopleLooking)
+    TextView peoplkeLooking;
+
     private ResideMenu resideMenu;
     private ResideMenuItem itemBookings;
     private ResideMenuItem itemUpdateProfile;
@@ -146,6 +157,9 @@ public class ShipDetailsActivity extends AppCompatActivity implements View.OnCli
         initUI();
 
         setUpMenu();
+        Random rand=new Random();
+        int num=rand.nextInt(7)+3;
+        peoplkeLooking.setText("  "+num +" People currently looking at this yacht.");
 
         // hiding action bar
         getSupportActionBar().hide();
@@ -202,7 +216,7 @@ Log.e("priceD",AppConstants.yachtsModel.getDiscountedPrice());
         // attach to current activity;
         resideMenu = new ResideMenu(this);
         //resideMenu.setUse3D(true);
-        resideMenu.setBackground(R.drawable.splash_bg_two);
+        resideMenu.setBackground(R.drawable.splash_bg);
         resideMenu.attachToActivity(this);
 
         //valid scale factor is between 0.0f and 1.0f. leftmenu'width is 150dip.
@@ -302,7 +316,7 @@ Log.e("priceD",AppConstants.yachtsModel.getDiscountedPrice());
                     Log.e("test", "1");
                     Gson gson = new Gson();
                     String json = gson.toJson(response.body());
-                    Log.e("test_json", json);
+                    Log.e("yacht_details", json);
                     Log.e("test", "2");
 
                     if (response.isSuccessful()) {
@@ -321,6 +335,17 @@ Log.e("priceD",AppConstants.yachtsModel.getDiscountedPrice());
                                 JSONObject dataObject = jsonObject.getJSONObject("data");
 
                                 JSONObject yachtObject = dataObject.getJSONObject("yacht");
+
+                                JSONObject detailsObject=yachtObject.getJSONObject("0");
+
+                                String build_name=detailsObject.getString("build_name");
+                                String cabin=detailsObject.getString("cabin");
+
+                                tvBuildName.setText(build_name);
+                                tvCabins.setText(cabin);
+
+
+
 
                                 for (int i = 0; i < yachtObject.getJSONArray("sliders").length(); i++) {
 
@@ -449,6 +474,7 @@ Log.e("priceD",AppConstants.yachtsModel.getDiscountedPrice());
                                     Log.e("test", "6");
                                 }
                                 tvBookNow1.setClickable(true);
+                                tvBookNow2.setClickable(true);
 
                             } else {
                                 spinKit.setVisibility(View.GONE);
@@ -487,7 +513,7 @@ Log.e("priceD",AppConstants.yachtsModel.getDiscountedPrice());
 
     HashMap<String, ArrayList<SubFacilityModel>> listDataChild;
 
-    @OnClick({R.id.ivYachtMainImage, R.id.ivPreviousYacht, R.id.ivNextYacht, /*bottom navigation*/ R.id.ivNavigationIcon, R.id.ivCallBack, R.id.ivContactUs, R.id.ivHotDeals, R.id.ivHome, R.id.ivNextPictureYacht, R.id.ivPreviousPictureYacht,R.id.tvBookNow1})
+    @OnClick({R.id.ivYachtMainImage, R.id.ivPreviousYacht, R.id.ivNextYacht, /*bottom navigation*/ R.id.ivNavigationIcon, R.id.ivCallBack, R.id.ivContactUs, R.id.ivHotDeals, R.id.ivHome, R.id.ivNextPictureYacht, R.id.ivPreviousPictureYacht,R.id.tvBookNow1 , R.id.tvBookNow2})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.ivYachtMainImage:
@@ -570,6 +596,12 @@ Log.e("priceD",AppConstants.yachtsModel.getDiscountedPrice());
                 }
                 break;
             case R.id.tvBookNow1:
+
+                Log.e("booknowclicked","book now clicked");
+                startActivity(new Intent(activity, BookingActivity.class));
+
+                break;
+            case R.id.tvBookNow2:
 
                 Log.e("booknowclicked","book now clicked");
                 startActivity(new Intent(activity, BookingActivity.class));

@@ -741,6 +741,8 @@ public class UserInfo extends AppCompatActivity {
 
             body.put("amount_remaining", AppConstants.remainingAmount + "");
 
+            body.put("no_of_guests",AppConstants.no_of_guests);
+
             //  body.put("card_expiry", txtMonth.getText().toString()+ "/"+txtYear.getText().toString());
 
             //  body.put("card_number", txtCardNumber.getText().toString());

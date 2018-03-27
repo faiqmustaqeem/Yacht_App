@@ -108,6 +108,8 @@ public class BookingActivity extends AppCompatActivity implements ShowDataInterf
     TextView tvAddOnFacilities;
     @BindView(R.id.liHotslots)
     LinearLayout liHotslots;
+    @BindView(R.id.no_guests)
+    EditText no_of_guests;
     private CalendarAdapter calAdapter;
     GregorianCalendar previousCalMonth;
     String period = "";
@@ -311,6 +313,8 @@ public class BookingActivity extends AppCompatActivity implements ShowDataInterf
         Spinner spinner_AM_PM=(Spinner)findViewById(R.id.am_pm_spinner);
         List<String> AM_PM_list=new ArrayList<>();
 
+
+
         AM_PM_list.add("AM");
         AM_PM_list.add("PM");
 
@@ -381,7 +385,7 @@ public class BookingActivity extends AppCompatActivity implements ShowDataInterf
         // attach to current activity;
         resideMenu = new ResideMenu(this);
         //resideMenu.setUse3D(true);
-        resideMenu.setBackground(R.drawable.splash_bg_two);
+        resideMenu.setBackground(R.drawable.splash_bg);
         resideMenu.attachToActivity(this);
 
         //valid scale factor is between 0.0f and 1.0f. leftmenu'width is 150dip.
@@ -498,6 +502,9 @@ public class BookingActivity extends AppCompatActivity implements ShowDataInterf
                     Toast.makeText(activity, "Minimum duration must be 2 hours", Toast.LENGTH_SHORT).show();
                 } else if (txtDuration.getText().toString().equals("")) {
                     Toast.makeText(activity, "Please mention your trip duration", Toast.LENGTH_SHORT).show();
+                }
+                else if (no_of_guests.getText().toString().equals("")) {
+                    Toast.makeText(activity, "Please mention number of guests", Toast.LENGTH_SHORT).show();
                 }
                 else if (isTimeSet==false) {
                     Toast.makeText(activity, "Please select start Time", Toast.LENGTH_SHORT).show();
@@ -616,7 +623,7 @@ public class BookingActivity extends AppCompatActivity implements ShowDataInterf
                             }
 
                             progressDialog.dismiss();
-
+                            AppConstants.no_of_guests=no_of_guests.getText().toString();
                             if (isAvailable) {
                                 AppConstants.discountPercentage=0;
 

@@ -128,14 +128,14 @@
                 android:id="@+id/tvViewMore"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:background="?attr/selectableItemBackground"
+                android:background="#3f8b0b"
                 android:clickable="true"
-                android:text="VIEW MORE"
+                android:text="BOOk NOW"
                 android:layout_weight="5"
                 android:textStyle="bold"
                 android:textSize="12sp"
                 android:layout_gravity="center"
-                android:textColor="@android:color/white"
+                android:textColor="#FFFFFF"
                 android:gravity="center"
                 />
 

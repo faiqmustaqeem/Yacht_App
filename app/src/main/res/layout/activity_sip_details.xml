@@ -195,14 +195,14 @@
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
                     android:orientation="horizontal"
-                    android:padding="5dp"
+                    android:layout_marginLeft="4dp"
                     android:weightSum="25">
 
                     <TextView
                         android:id="@+id/tvYachtTitle"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="5"
+                        android:layout_weight="4.5"
                         android:text="30ft"
                         android:layout_gravity="center_vertical"
                         android:textColor="@android:color/white"
@@ -213,7 +213,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:layout_weight="7">
+                        android:padding="5dp"
+                        android:layout_weight="6.5">
 
                         <TextView
                             android:id="@+id/tvPrice"
@@ -254,6 +255,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="5"
                         android:layout_gravity="center_vertical"
+                        android:visibility="gone"
                         android:orientation="horizontal">
 
                         <TextView
@@ -273,20 +275,38 @@
                             android:textSize="10sp" />
                     </LinearLayout>
 
-                    <TextView
+                    <LinearLayout
                         android:id="@+id/tvBookNow1"
                         android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="7"
-                        android:background="?attr/selectableItemBackground"
+                        android:layout_weight="14"
                         android:clickable="true"
-                        android:drawableLeft="@drawable/icon_yacht"
-                        android:gravity="center"
-                        android:text="BOOK  NOW"
-                        android:layout_gravity="center_vertical"
-                        android:textColor="@android:color/holo_orange_dark"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:background="#3f8b0b"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="BOOK NOW"
+                            android:textSize="16sp"
+                            android:textColor="@android:color/white"
+                            />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="12sp"
+                            android:text="Pay 20% percent to confirm"
+                            android:textColor="#E49b00"
+
+                            />
+
+                    </LinearLayout>
+
+
 
                 </LinearLayout>
 
@@ -360,6 +380,35 @@
                         android:background="@android:color/white"
                         android:orientation="vertical"
                         android:padding="10dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="4dp"
+                            >
+
+                            <ImageView
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:src="@drawable/eye"
+                                android:layout_gravity="center_vertical"/>
+
+                            <TextView
+                                android:id="@+id/tvPeopleLooking"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:text="  7 people currently looking at this yahct."
+                                android:textColor="@android:color/black"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@android:color/darker_gray" />
+
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -368,21 +417,22 @@
                             android:padding="4dp"
                             android:weightSum="5">
 
+
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2">
                                 <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="match_parent"
-                                    android:src="@drawable/icon_yacht"
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:src="@drawable/max_guest"
                                     android:tint="@android:color/black" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="4dp"
-                                    android:text="Max. Guests"
+                                    android:text=" Max. Guests"
                                     android:textColor="@android:color/black"
                                     android:textSize="15sp" />
                             </LinearLayout>
@@ -415,16 +465,16 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2">
                                 <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="match_parent"
-                                    android:src="@drawable/icon_yacht"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:src="@drawable/time"
                                     android:tint="@android:color/black" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="4dp"
-                                    android:text="Trip Duration"
+                                    android:text="  Trip Duration"
                                     android:textColor="@android:color/black"
                                     android:textSize="15sp" />
                             </LinearLayout>
@@ -457,16 +507,16 @@
                                 android:layout_weight="2">
 
                                 <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="match_parent"
-                                    android:src="@drawable/icon_yacht"
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:src="@drawable/cabin"
                                     android:tint="@android:color/black" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="4dp"
-                                    android:text="Cabins"
+                                    android:text=" Cabins"
                                     android:textColor="@android:color/black"
                                     android:textSize="15sp" />
 
@@ -525,11 +575,12 @@
 
 
 
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:layout_marginBottom="10dp"
+                            android:layout_marginBottom="0dp"
                             android:weightSum="5"
                             android:padding="4dp">
 
@@ -538,9 +589,9 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2">
                                 <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="match_parent"
-                                    android:src="@drawable/icon_yacht"
+                                    android:layout_width="22dp"
+                                    android:layout_height="22dp"
+                                    android:src="@drawable/facilities"
                                     android:tint="@android:color/black" />
 
                                 <TextView
@@ -548,7 +599,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="4dp"
                                     android:layout_gravity="center_vertical"
-                                    android:text="Facilities"
+                                    android:text="  Facilities"
                                     android:textColor="@android:color/black"
                                     android:textSize="15sp" />
 
@@ -563,6 +614,86 @@
                                 android:textColor="@android:color/black"
                                 android:textSize="15sp" />
                         </LinearLayout>
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@android:color/darker_gray" />
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginBottom="10dp"
+                            android:weightSum="5"
+                            android:padding="4dp">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2">
+                                <ImageView
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:src="@drawable/cabin"
+                                    android:tint="@android:color/black" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="4dp"
+                                    android:layout_gravity="center_vertical"
+                                    android:text="Build Name"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="15sp" />
+
+                            </LinearLayout>
+
+
+                            <TextView
+                                android:id="@+id/tvbuildname"
+                                android:layout_width="0dp"
+                                android:layout_weight="3"
+                                android:layout_height="wrap_content"
+                                android:text="-"
+                                android:maxLines="5"
+                                android:textColor="@android:color/black"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/tvBookNow2"
+                            android:layout_width="match_parent"
+                            android:clickable="true"
+                            android:background="#3f8b0b"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
+                            android:orientation="vertical">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Book Now"
+                                android:textSize="18sp"
+                                android:textColor="@android:color/white"
+                                />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="14sp"
+                                android:text="pay 20% percent to confirm your booking"
+                                android:textColor="#E49b00"
+                                />
+
+                        </LinearLayout>
+
 
                         <LinearLayout
                             android:layout_width="match_parent"

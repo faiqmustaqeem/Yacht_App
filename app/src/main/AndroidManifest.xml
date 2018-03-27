@@ -91,20 +91,29 @@
         <activity
             android:name=".activity.UserProfileActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activity.BookingTimeActivity" />
-        <activity android:name=".activity.ConfirmBookingDetailsActivity" />
-        <activity android:name=".activity.HotDealsActivity" />
-        <activity android:name=".activity.SuccessActivity" />
+        <activity android:name=".activity.BookingTimeActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.ConfirmBookingDetailsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.HotDealsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.SuccessActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name=".activity.UserInfo"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateVisible|adjustResize"/>
         <activity android:name=".activity.HaveAccounnt"
-            android:windowSoftInputMode="stateVisible|adjustResize"/>
+            android:windowSoftInputMode="stateVisible|adjustResize"
+            android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.WebViewActivity"> </activity>
+        <activity android:name=".activity.WebViewActivity"
+            android:screenOrientation="portrait"> </activity>
 
-        <activity android:name=".activity.StatusActivity"> </activity>
+        <activity android:name=".activity.StatusActivity"
+            android:screenOrientation="portrait"> </activity>
 
-        <activity android:name=".activity.ForgotPassword"></activity>
+        <activity android:name=".activity.ForgotPassword"
+            android:screenOrientation="portrait"></activity>
 
 
     </application>
