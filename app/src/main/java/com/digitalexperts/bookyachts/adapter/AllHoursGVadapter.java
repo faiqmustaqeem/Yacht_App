@@ -66,6 +66,12 @@ public class AllHoursGVadapter extends BaseAdapter {
                 tvHours.setBackgroundColor(context.getResources().getColor(R.color.light_green));
             } else {
                 tvHours.setBackgroundColor(context.getResources().getColor(R.color.light_blue));
+                BookingTimeActivity.scrollView.post(new Runnable() {
+                    public void run() {
+                        BookingTimeActivity.scrollView.scrollTo(0, BookingTimeActivity.scrollView.getBottom());
+                        BookingTimeActivity.viewDuration.setBackgroundColor(context.getResources().getColor(R.color.light_green));
+                    }
+                });
             }
 
             if (bookingHoursModel.getIsAlreadyBooked().equals("true")) {
@@ -178,6 +184,12 @@ public class AllHoursGVadapter extends BaseAdapter {
                 tvHours.setBackgroundColor(context.getResources().getColor(R.color.light_green));
             } else {
                 tvHours.setBackgroundColor(context.getResources().getColor(R.color.light_blue));
+                BookingTimeActivity.scrollView.post(new Runnable() {
+                    public void run() {
+                        BookingTimeActivity.scrollView.scrollTo(0, BookingTimeActivity.scrollView.getBottom());
+                        BookingTimeActivity.viewDuration.setBackgroundColor(context.getResources().getColor(R.color.light_green));
+                    }
+                });
             }
 
             if (bookingHoursModel.getIsAlreadyBooked().equals("true")) {

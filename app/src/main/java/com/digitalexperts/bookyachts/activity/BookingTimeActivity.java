@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -80,6 +81,9 @@ public class BookingTimeActivity extends AppCompatActivity {
     @BindView(R.id.spinner_duration)
     Spinner durationSpinner;
 
+   public static ScrollView scrollView;
+    public static View viewDuration;
+
 
 
     public static EditText static_etStartTime;
@@ -120,6 +124,10 @@ public class BookingTimeActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         activity=this;
+
+        scrollView=(ScrollView)findViewById(R.id.scrollview);
+        viewDuration=(View)findViewById(R.id.view_duration);
+
 
        // tvSelectYacht.setText();
         tvSelectYacht.setText(AppConstants.yachtsModel.getTitle().substring(0, 2) + "ft");

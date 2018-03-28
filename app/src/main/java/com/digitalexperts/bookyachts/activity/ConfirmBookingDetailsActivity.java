@@ -71,6 +71,8 @@ public class ConfirmBookingDetailsActivity extends AppCompatActivity {
 
     @BindView(R.id.spin_kit)
     SpinKitView spinKit;
+    @BindView(R.id.etEndTime)
+    EditText etEndTime;
 
     Activity activity;
     private String accessCode, merchantId, currency, amount, orderId, rsaKeyUrl, redirectUrl, cancelUrl;
@@ -85,7 +87,7 @@ public class ConfirmBookingDetailsActivity extends AppCompatActivity {
         activity=this;
         getSupportActionBar().setTitle("CONFIRM BOOKING");
 
-        etStartTime.setText(AppConstants.bookYachtModel.getStartTime());
+        etStartTime.setText(AppConstants.bookYachtModel.getStartTime()+ " ("+ AppConstants.bookYachtModel.getStartDate()+")");
 
         etDuration.setText(AppConstants.bookYachtModel.getDuration()+" HOURS");
 
@@ -97,8 +99,14 @@ public class ConfirmBookingDetailsActivity extends AppCompatActivity {
             tvPrice.setText(AppConstants.yachtsModel.getPrice());
 
 
-
-        etDate.setText(AppConstants.bookYachtModel.getStartDate());
+        try {
+           etEndTime.setText(getEndTime(AppConstants.bookYachtModel.getStartTime(),AppConstants.bookYachtModel.getStartDate(),Integer.parseInt(AppConstants.bookYachtModel.getDuration())));
+            Log.e("end_time" , getEndTime(AppConstants.bookYachtModel.getStartTime(),AppConstants.bookYachtModel.getStartDate(),Integer.parseInt(AppConstants.bookYachtModel.getDuration())));
+        } catch (ParseException e) {
+            e.printStackTrace();
+            Log.e("end_time_exc" , e.getMessage());
+        }
+       // etDate.setText(AppConstants.bookYachtModel.getStartDate());
 
         total =Double.parseDouble(AppConstants.yachtsModel.getPrice())* Double.parseDouble(AppConstants.bookYachtModel.getDuration());
         Log.e("total",total+"");
@@ -362,38 +370,49 @@ double getPercentAmount(double amount , double percent)
     public void showToast(String msg) {
         Toast.makeText(activity, "Toast: " + msg, Toast.LENGTH_LONG).show();
     }
-    public String getEndTime(String startTime, int d) {
-      String hour=startTime.substring(0,2);
-        int endTimeInt=Integer.parseInt(hour)+d;
-        String endTimeHourStr=endTimeInt+"";
-        if(endTimeHourStr.length()==1)
+    public String getEndTime(String startTime,String startDate , int d) throws ParseException {
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar cal = Calendar.getInstance();
+        Log.e("end_time_inside" ,startDate);
+        cal.setTime(sdf.parse(startDate));// all done
+
+       // return newEndTime;
+
+        String time24=convert12HoursFormatTo24Hours(startTime);
+        int hour=Integer.parseInt(time24.substring(0,2));
+
+        hour=hour+d;
+        String newEndTime=startDate;
+        if(hour > 23)
         {
-            endTimeHourStr="0"+endTimeHourStr;
+            cal.add(Calendar.DATE, 1);
+            Date date=cal.getTime();
+            newEndTime = sdf.format(date);
         }
+        hour=hour%24;
 
-        String am_pm=startTime.substring(6,8);
-        String new_am_pm="";
+        String hourStr=hour+":00";
+        String time12=convert24HoursFormatTo12Hours(hourStr);
+        return time12+" ("+newEndTime+")";
 
-        if(am_pm.equals("AM"))
-        {
-            new_am_pm="PM";
-        }
-        else {
-            new_am_pm="AM";
-        }
-
-        if(endTimeInt > 12)
-        {
-            endTimeHourStr+=":00 "+new_am_pm;
-        }
-        else {
-            endTimeHourStr+=":00 "+am_pm;
-        }
-        Log.e("end_time" , endTimeHourStr);
-
-        return endTimeHourStr;
 
     }
+    private String convert24HoursFormatTo12Hours(String time24) {
+        String time12 = "";
+
+        SimpleDateFormat date12Format = new SimpleDateFormat("hh:mm a");
+
+        SimpleDateFormat date24Format = new SimpleDateFormat("HH:mm");
+        try {
+            time12=(date12Format.format(date24Format.parse(time24)));
+        }catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return time12;
+    }
+
 
 
 }

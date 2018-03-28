@@ -7,8 +7,11 @@
     tools:context="com.digitalexperts.bookyachts.activity.BookingTimeActivity">
 
     <ScrollView
+        android:id="@+id/scrollview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -77,6 +80,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:layout_marginTop="8dp"
+                android:gravity="center_horizontal"
                 android:layout_below="@id/constraintLayout">
 
                 <TextView
@@ -88,6 +92,8 @@
                     android:layout_centerHorizontal="true"
                     android:gravity="center"
                     android:textSize="16sp"/>
+
+
                 <LinearLayout
                     android:id="@+id/linearLayoutNew"
                     android:layout_width="wrap_content"
@@ -96,14 +102,7 @@
                     android:layout_below="@id/text_not_available"                    android:layout_centerHorizontal="true"
                     android:layout_marginTop="0dp"
                     >
-                    <ImageView
-                        android:id="@+id/ivHotOfferIcon2"
-                        android:layout_width="30dp"
-                        android:layout_height="20dp"
-                        android:layout_marginLeft="0dp"
-                        android:padding="3dp"
-                        android:src="@drawable/ic_hot_offer"
-                        android:tint="#ff0000" />
+
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -126,6 +125,16 @@
                             android:textStyle="bold" />
                     </LinearLayout>
                 </LinearLayout>
+                <ImageView
+                    android:id="@+id/ivHotOfferIcon2"
+                    android:layout_width="30dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="0dp"
+                    android:padding="3dp"
+                    android:layout_toLeftOf="@id/linearLayoutNew"
+                    android:layout_below="@id/text_not_available"
+                    android:src="@drawable/ic_hot_offer"
+                    android:tint="#ff0000" />
 
 
 
@@ -155,7 +164,7 @@
                         android:layout_height="wrap_content"
                         android:columnWidth="120dp"
                         android:gravity="center"
-                        android:horizontalSpacing="10dp"
+                        android:horizontalSpacing="15dp"
                         android:numColumns="4"
                         android:verticalSpacing="10dp"
                         android:stretchMode="columnWidth"
@@ -277,6 +286,7 @@
         android:layout_weight="1"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginLeft="20dp"
                      android:layout_centerHorizontal="true"
         android:layout_marginTop="0dp"
         >
@@ -294,8 +304,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="20dp"
-            android:text="Time not Available"
+            android:layout_marginLeft="10dp"
+            android:text="Time Not Available"
             android:textColor="@android:color/black"
             android:textStyle="bold" />
     </LinearLayout>
@@ -324,8 +334,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="20dp"
-            android:text="Hot Offer available"
+            android:layout_marginLeft="10dp"
+            android:text="Hot Offer Available"
             android:textColor="@android:color/black"
             android:textStyle="bold" />
     </LinearLayout>
@@ -395,7 +405,7 @@
                             android:layout_marginLeft="8dp"
                             android:layout_marginRight="8dp"
                             android:layout_marginTop="6dp"
-                            android:text="actual price"
+                            android:text="Actual Price"
                             android:textColor="@color/colorPrimary"
                             android:textSize="10sp"
                             android:textStyle="bold"
@@ -470,7 +480,7 @@
                             android:layout_width="25dp"
                             android:layout_height="0dp"
                             android:layout_marginLeft="0dp"
-                            android:layout_marginStart="20dp"
+                            android:layout_marginStart="10dp"
                             android:background="#fff5c3"
                             android:padding="3dp"
                             android:src="@drawable/ic_hot_offer"
@@ -487,7 +497,7 @@
                             android:layout_marginLeft="8dp"
                             android:layout_marginRight="8dp"
                             android:layout_marginTop="6dp"
-                            android:text="hot offer"
+                            android:text="Hot Offer"
                             android:textColor="@color/colorPrimary"
                             android:textSize="10sp"
                             android:textStyle="bold"
@@ -546,6 +556,7 @@
                 android:textColor="@color/light_green"
                 android:text="DURATION (HOURS)"
                 android:textSize="12sp"
+                android:layout_marginTop="10dp"
                 android:layout_below="@id/linearLayout1"/>
 
             <LinearLayout
@@ -559,6 +570,7 @@
                 android:paddingBottom="0dp"
                 android:paddingLeft="0dp"
                 android:paddingTop="0dp"
+                android:orientation="vertical"
                 android:layout_below="@id/textView4">
 
 
@@ -568,6 +580,16 @@
                     android:layout_marginLeft="12dp"
                     android:layout_height="30dp"
                     ></Spinner>
+
+                <View
+                    android:id="@+id/view_duration"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:background="@android:color/darker_gray"
+                    ></View>
+
             </LinearLayout>
 
             <TextView
