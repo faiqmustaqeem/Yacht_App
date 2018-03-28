@@ -503,9 +503,7 @@ public class BookingActivity extends AppCompatActivity implements ShowDataInterf
                 } else if (txtDuration.getText().toString().equals("")) {
                     Toast.makeText(activity, "Please mention your trip duration", Toast.LENGTH_SHORT).show();
                 }
-                else if (no_of_guests.getText().toString().equals("")) {
-                    Toast.makeText(activity, "Please mention number of guests", Toast.LENGTH_SHORT).show();
-                }
+
                 else if (isTimeSet==false) {
                     Toast.makeText(activity, "Please select start Time", Toast.LENGTH_SHORT).show();
                 }
@@ -623,6 +621,13 @@ public class BookingActivity extends AppCompatActivity implements ShowDataInterf
                             }
 
                             progressDialog.dismiss();
+                            if(no_of_guests.getText().toString().equals(""))
+                            {
+                                AppConstants.no_of_guests="";
+                            }
+                            else {
+                                AppConstants.no_of_guests=no_of_guests.getText().toString();
+                            }
                             AppConstants.no_of_guests=no_of_guests.getText().toString();
                             if (isAvailable) {
                                 AppConstants.discountPercentage=0;

@@ -522,7 +522,7 @@
                                            android:layout_height="wrap_content"
                                            android:layout_marginLeft="10dp"
                                            android:text="Start Time"
-                                           android:textColor="@android:color/black"
+                                           android:textColor="@color/orange"
                                            android:textColorHint="@android:color/black"
                                            android:textSize="12sp" />
                                    </LinearLayout>
@@ -575,7 +575,7 @@
                                            android:layout_height="wrap_content"
                                            android:layout_marginLeft="10dp"
                                            android:text="Duration"
-                                           android:textColor="@android:color/black"
+                                           android:textColor="@color/colorPrimary"
                                            android:textSize="12sp" />
                                    </LinearLayout>
 

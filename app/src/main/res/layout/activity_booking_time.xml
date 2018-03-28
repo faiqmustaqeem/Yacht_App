@@ -80,11 +80,62 @@
                 android:layout_below="@id/constraintLayout">
 
                 <TextView
+                    android:id="@+id/text_not_available"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Your desired time is not available"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:textSize="16sp"/>
+                <LinearLayout
+                    android:id="@+id/linearLayoutNew"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_below="@id/text_not_available"                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="0dp"
+                    >
+                    <ImageView
+                        android:id="@+id/ivHotOfferIcon2"
+                        android:layout_width="30dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="0dp"
+                        android:padding="3dp"
+                        android:src="@drawable/ic_hot_offer"
+                        android:tint="#ff0000" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal">
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Hot Offer"
+                            android:textColor="@android:color/holo_orange_dark"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/textView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" available for these time slots"
+                            android:textColor="@android:color/black"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+
+
+                <TextView
                     android:id="@+id/text_select"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_below="@id/linearLayoutNew"
                     android:text="Please select start time"
-                    android:textColor="@android:color/holo_red_dark"
+                    android:textColor="@color/light_green"
                     android:layout_centerHorizontal="true"
                     android:textSize="20sp"/>
                 <LinearLayout
@@ -212,36 +263,75 @@
             </RelativeLayout>
 
 
-            <LinearLayout
-                android:id="@+id/linearLayoutNew"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_below="@id/constraintLayout2"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
-                >
-                <ImageView
-                    android:id="@+id/ivHotOfferIcon2"
-                    android:layout_width="30dp"
-                    android:layout_height="20dp"
-                    android:layout_marginLeft="0dp"
-                    android:layout_marginStart="20dp"
-                    android:padding="3dp"
-                    android:src="@drawable/ic_hot_offer"
-                    android:tint="#ff0000" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/hint_layout"
+    android:weightSum="2"
+    android:layout_below="@id/constraintLayout2"
+    android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+    <LinearLayout
+        android:id="@+id/hot_offer_available"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+                     android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        >
+        <View
 
-                    android:text="Hot Offer available for these time slots"
-                    android:textColor="@android:color/black"
-                    android:textStyle="bold" />
-            </LinearLayout>
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginLeft="0dp"
+            android:padding="3dp"
+            android:layout_gravity="center_vertical"
+            android:background="@color/red"
+            android:tint="#ff0000" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:text="Time not Available"
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
+    </LinearLayout>
 
 
+    <LinearLayout
+        android:id="@+id/time_not_available"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        >
+        <View
+
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginLeft="0dp"
+            android:padding="3dp"
+            android:layout_gravity="center_vertical"
+            android:background="@color/light_green"
+            android:tint="#ff0000" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:text="Hot Offer available"
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+</LinearLayout>
 
             <LinearLayout
                 android:id="@+id/linearLayout1"
@@ -252,7 +342,7 @@
                 android:weightSum="9"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:layout_below="@id/linearLayoutNew"
+                android:layout_below="@id/hint_layout"
                 >
 
                 <LinearLayout
@@ -445,43 +535,7 @@
 
 
 
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:text="START TIME"
-                android:textSize="12sp"
-                android:layout_below="@id/linearLayout1"/>
 
-            <LinearLayout
-                android:id="@+id/linearLayout4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginLeft="18dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginStart="18dp"
-                android:paddingBottom="0dp"
-                android:paddingLeft="0dp"
-                android:paddingTop="0dp"
-                android:layout_below="@id/textView3"
-            >
-
-                <EditText
-                    android:id="@+id/etStartTime"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:focusable="false"
-                    android:hint=""
-                    android:inputType="number"
-                    android:textColor="@android:color/black"
-                    android:textColorHint="@android:color/black"
-                    android:textSize="12sp" />
-            </LinearLayout>
 
             <TextView
                 android:id="@+id/textView4"
@@ -489,9 +543,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginStart="16dp"
-                android:text="DURATION"
+                android:textColor="@color/light_green"
+                android:text="DURATION (HOURS)"
                 android:textSize="12sp"
-                android:layout_below="@id/linearLayout4"/>
+                android:layout_below="@id/linearLayout1"/>
 
             <LinearLayout
                 android:id="@+id/linearLayout5"
@@ -516,6 +571,44 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="START TIME"
+                android:textSize="12sp"
+                android:layout_below="@id/linearLayout5"/>
+
+            <LinearLayout
+                android:id="@+id/linearLayout4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="18dp"
+                android:paddingBottom="0dp"
+                android:paddingLeft="0dp"
+                android:paddingTop="0dp"
+                android:layout_below="@id/textView3"
+                >
+
+                <EditText
+                    android:id="@+id/etStartTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:focusable="false"
+                    android:hint=""
+                    android:inputType="number"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="@android:color/black"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <TextView
                 android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -523,7 +616,7 @@
                 android:layout_marginStart="16dp"
                 android:text="DATE"
                 android:textSize="12sp"
-                android:layout_below="@id/linearLayout5"/>
+                android:layout_below="@id/linearLayout4"/>
 
             <LinearLayout
                 android:id="@+id/linearLayout6"

@@ -62,13 +62,14 @@ public class AllHoursGVadapter extends BaseAdapter {
 
             if (bookingHoursModel.getIsSelected().equals("false")) {
 //                tvHours.setBackgroundColor(context.getResources().getColor(android.R.color.white));
-                tvHours.setBackground(context.getResources().getDrawable(R.drawable.calendar_selecter));
+              //  tvHours.setBackground(context.getResources().getDrawable(R.drawable.calendar_selecter));
+                tvHours.setBackgroundColor(context.getResources().getColor(R.color.light_green));
             } else {
                 tvHours.setBackgroundColor(context.getResources().getColor(R.color.light_blue));
             }
 
             if (bookingHoursModel.getIsAlreadyBooked().equals("true")) {
-                tvHours.setBackgroundColor(context.getResources().getColor(R.color.light_red));
+                tvHours.setBackgroundColor(context.getResources().getColor(R.color.red));
             }
 
 
@@ -173,13 +174,14 @@ public class AllHoursGVadapter extends BaseAdapter {
 
             if (bookingHoursModel.getIsSelected().equals("false")) {
 //                tvHours.setBackgroundColor(context.getResources().getColor(android.R.color.white));
-                tvHours.setBackground(context.getResources().getDrawable(R.drawable.calendar_selecter));
+               // tvHours.setBackground(context.getResources().getDrawable(R.drawable.calendar_selecter));
+                tvHours.setBackgroundColor(context.getResources().getColor(R.color.light_green));
             } else {
                 tvHours.setBackgroundColor(context.getResources().getColor(R.color.light_blue));
             }
 
             if (bookingHoursModel.getIsAlreadyBooked().equals("true")) {
-                tvHours.setBackgroundColor(context.getResources().getColor(R.color.light_red));
+                tvHours.setBackgroundColor(context.getResources().getColor(R.color.red));
             }
 
         }

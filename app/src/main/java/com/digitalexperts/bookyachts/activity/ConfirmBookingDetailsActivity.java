@@ -24,7 +24,10 @@ import com.google.gson.Gson;
 
 import org.json.JSONObject;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 
 import butterknife.BindView;
@@ -358,6 +361,38 @@ double getPercentAmount(double amount , double percent)
     }
     public void showToast(String msg) {
         Toast.makeText(activity, "Toast: " + msg, Toast.LENGTH_LONG).show();
+    }
+    public String getEndTime(String startTime, int d) {
+      String hour=startTime.substring(0,2);
+        int endTimeInt=Integer.parseInt(hour)+d;
+        String endTimeHourStr=endTimeInt+"";
+        if(endTimeHourStr.length()==1)
+        {
+            endTimeHourStr="0"+endTimeHourStr;
+        }
+
+        String am_pm=startTime.substring(6,8);
+        String new_am_pm="";
+
+        if(am_pm.equals("AM"))
+        {
+            new_am_pm="PM";
+        }
+        else {
+            new_am_pm="AM";
+        }
+
+        if(endTimeInt > 12)
+        {
+            endTimeHourStr+=":00 "+new_am_pm;
+        }
+        else {
+            endTimeHourStr+=":00 "+am_pm;
+        }
+        Log.e("end_time" , endTimeHourStr);
+
+        return endTimeHourStr;
+
     }
 
 
