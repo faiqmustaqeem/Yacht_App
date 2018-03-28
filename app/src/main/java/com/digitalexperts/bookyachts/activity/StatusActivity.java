@@ -73,8 +73,10 @@ public class StatusActivity extends AppCompatActivity {
                             AppConstants.order_id="0";
                             AppConstants.remainingAmount=0;
                             Intent i=new Intent(activity,DashboardActivity.class);
+							i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+							i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(i);
-                            activity.finish();
+                            //activity.finish();
                         }
                     })
                     .show();
@@ -97,8 +99,10 @@ public class StatusActivity extends AppCompatActivity {
                             AppConstants.order_id="0";
                             AppConstants.remainingAmount=0;
                             Intent i=new Intent(activity,DashboardActivity.class);
+							i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+							i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(i);
-                            activity.finish();
+
                         }
                     })
                     .show();
@@ -121,8 +125,10 @@ public class StatusActivity extends AppCompatActivity {
                             AppConstants.order_id="0";
                             AppConstants.remainingAmount=0;
                             Intent i=new Intent(activity,DashboardActivity.class);
+							i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+							i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(i);
-                            activity.finish();
+
                         }
                     })
 
@@ -194,8 +200,10 @@ public class StatusActivity extends AppCompatActivity {
                                     AppConstants.order_id="0";
                                             AppConstants.remainingAmount=0;
                                             Intent i=new Intent(activity,DashboardActivity.class);
+											i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+											i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                             startActivity(i);
-                                            activity.finish();
+
 										}
 									})
 

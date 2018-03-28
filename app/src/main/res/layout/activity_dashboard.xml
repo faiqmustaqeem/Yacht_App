@@ -154,44 +154,116 @@
             android:padding="18dp"
             android:src="@drawable/ic_white_menu" />
 
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/ivHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:gravity="bottom"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="9dp"
+                android:src="@drawable/ic_home"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="10sp"
+                android:layout_gravity="center_horizontal"
+                android:text="HOME"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/ivCallBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:gravity="bottom"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="9dp"
+                android:tint="@color/light_green"
+                android:src="@drawable/ic_phone"
+             />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:layout_gravity="center_horizontal"
+                android:textSize="10sp"
+                android:text="CALL BACK"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/ivHotDeals"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:gravity="bottom"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="9dp"
+                android:tint="@color/red"
+                android:src="@drawable/ic_hot_deals_orange"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:layout_gravity="center_horizontal"
+                android:textSize="10sp"
+                android:text="HOT DEALS"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/ivContactUs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:gravity="bottom"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="9dp"
+                android:src="@drawable/ic_contact"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:layout_gravity="center_horizontal"
+                android:textSize="10sp"
+                android:text="CONTACT US"/>
+        </LinearLayout>
+
         <ImageView
-            android:id="@+id/ivHome"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="5"
             android:gravity="bottom"
             android:orientation="vertical"
             android:padding="9dp"
-            android:src="@drawable/ic_home"/>
-        <ImageView
-            android:id="@+id/ivCallBack"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="5"
-            android:gravity="bottom"
-            android:orientation="vertical"
-            android:padding="9dp"
-            android:tint="@color/light_green"
-            android:src="@drawable/ic_phone"/>
-        <ImageView
-            android:id="@+id/ivHotDeals"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="5"
-            android:gravity="bottom"
-            android:orientation="vertical"
-            android:padding="9dp"
-            android:tint="@color/red"
-            android:src="@drawable/ic_hot_deals_orange"/>
-        <ImageView
-            android:id="@+id/ivContactUs"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="5"
-            android:gravity="bottom"
-            android:orientation="vertical"
-            android:padding="9dp"
-            android:src="@drawable/ic_contact"/>
+           />
 
     </LinearLayout>
 
