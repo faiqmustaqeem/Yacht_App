@@ -14,4 +14,10 @@
     <color name="red">#840505</color>
     <color name="light_blue">#a7b5d4</color>
     <color name="light_green">#3f8b0b</color>
+    <color name="green_callback">#67f903</color>
+    <color name="red_fire">#ff1212</color>
+
+    <color name="blue_text">#1346be</color>
+
+
 </resources>

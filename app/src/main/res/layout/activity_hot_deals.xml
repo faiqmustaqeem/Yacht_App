@@ -135,7 +135,7 @@
                 android:layout_gravity="center_horizontal"
                 android:orientation="vertical"
                 android:padding="9dp"
-                android:tint="@color/light_green"
+                android:tint="@color/green_callback"
                 android:src="@drawable/ic_phone"
                 />
             <TextView
@@ -160,7 +160,7 @@
                 android:layout_gravity="center_horizontal"
                 android:orientation="vertical"
                 android:padding="9dp"
-                android:tint="@color/red"
+                android:tint="@color/red_fire"
                 android:src="@drawable/ic_hot_deals_orange"
                 />
             <TextView
