@@ -299,7 +299,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="12sp"
-                            android:text="Pay 20% percent to confirm"
+                            android:text="Pay 20% to confirm"
                             android:textColor="#E49b00"
 
                             />
@@ -689,7 +689,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textSize="14sp"
-                                android:text="pay 20% percent to confirm your booking"
+                                android:text="pay 20% to confirm your booking"
                                 android:textColor="#E49b00"
                                 />
 
