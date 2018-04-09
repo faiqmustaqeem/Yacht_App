@@ -560,48 +560,49 @@
                                     android:background="@drawable/border"
                                     android:orientation="vertical">
 
-                                   <LinearLayout
-                                       android:layout_width="match_parent"
-                                       android:layout_height="wrap_content"
-                                       android:gravity="center">
-                                       <ImageView
-                                           android:layout_width="15dp"
-                                           android:layout_height="15dp"
-                                           android:layout_gravity="center"
-                                           android:src="@drawable/icon_timeandduration"
-                                           android:tint="@android:color/black" />
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center">
 
-                                       <TextView
-                                           android:layout_width="wrap_content"
-                                           android:layout_height="wrap_content"
-                                           android:layout_marginLeft="10dp"
-                                           android:text="DURATION"
-                                           android:textColor="@color/colorPrimaryDark"
-                                           android:textSize="12sp" />
-                                   </LinearLayout>
+                                        <ImageView
+                                            android:layout_width="15dp"
+                                            android:layout_height="15dp"
+                                            android:layout_gravity="center"
+                                            android:src="@drawable/icon_timeandduration"
+                                            android:tint="@android:color/black" />
 
-                                   <LinearLayout
-                                       android:layout_width="wrap_content"
-                                       android:layout_height="wrap_content"
-                                       android:layout_gravity="center"
-                                       android:orientation="horizontal"
-                                       >
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:text="DURATION"
+                                            android:textColor="@color/blue_text"
+                                            android:textSize="12sp" />
+                                    </LinearLayout>
 
-                                       <EditText
-                                           android:id="@+id/txtDuration"
-                                           android:layout_width="24dp"
-                                           android:layout_height="wrap_content"
-                                           android:layout_marginLeft="5dp"
-                                           android:hint="2"
-                                           android:imeOptions="actionDone"
-                                           android:inputType="number"
-                                           android:textColor="@android:color/black"
-                                           android:textSize="13sp" />
-                                       <TextView
-                                           android:layout_width="wrap_content"
-                                           android:layout_height="wrap_content"
-                                           android:text="HOURS"/>
-                                   </LinearLayout>
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:orientation="horizontal">
+
+                                        <EditText
+                                            android:id="@+id/txtDuration"
+                                            android:layout_width="24dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="5dp"
+                                            android:hint="2"
+                                            android:imeOptions="actionDone"
+                                            android:inputType="number"
+                                            android:textColor="@android:color/black"
+                                            android:textSize="13sp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="HOURS" />
+                                    </LinearLayout>
                                 </LinearLayout>
 
                             </LinearLayout>
@@ -748,7 +749,7 @@
                     android:layout_gravity="center_horizontal"
                     android:orientation="vertical"
                     android:padding="9dp"
-                    android:tint="@color/light_green"
+                    android:tint="@color/green_callback"
                     android:src="@drawable/ic_phone"
                     />
                 <TextView
@@ -773,7 +774,7 @@
                     android:layout_gravity="center_horizontal"
                     android:orientation="vertical"
                     android:padding="9dp"
-                    android:tint="@color/red"
+                    android:tint="@color/red_fire"
                     android:src="@drawable/ic_hot_deals_orange"
                     />
                 <TextView
